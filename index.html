@@ -231,21 +231,20 @@
                 : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
             aria-label="Go to about"
           ></button>
-          <button
-            type="button"
-            @click="triggerNavItem('#work')"
-            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-            :class="currentSection === 2
-              ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
-              : currentSection === 0
-                ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
-                : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
-            aria-label="Go to work"
-          ></button>
+            <button
+              type="button"
+              @click="triggerNavItem('#work')"
+              class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+              :class="currentSection === 2
+                ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+                : currentSection === 0
+                  ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                  : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+              aria-label="Go to work"
+            ></button>
         </div>
 
-        <div
-          id="hero"
+        <div id="hero"
           class="snap-section relative min-h-screen bg-cover bg-center bg-no-repeat"
           style="background-image: url(/assets/img/bg-hero.jpg)"
         >
@@ -328,7 +327,8 @@
           </div>
         </div>
 
-        <div class="snap-section min-h-screen bg-grey-50" id="about">
+        <div id="about" 
+          class="snap-section min-h-screen bg-grey-50">
           <div
             class="container flex flex-col items-center py-16 md:py-20 lg:flex-row"
           >
@@ -501,9 +501,8 @@
           </div>
         </div>
 
-        <div
+        <div id="work"
           class="snap-section min-h-screen bg-white py-16 md:py-20"
-          id="work"
           @wheel="onWorkScroll($event)"
         >
           <div class="container">
@@ -712,6 +711,99 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-grey-50" id="blog">
+          <div class="container py-16 md:py-20">
+            <h2
+              class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+            >
+              I also had a few freelancing experiences
+            </h2>
+            <h4
+              class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+            >
+              Some of my work and reviews
+            </h4>
+            <div
+              class="mx-auto grid w-full grid-cols-1 gap-6 pt-12 sm:w-3/4 lg:w-full lg:grid-cols-3 xl:gap-10"
+            >
+              <a href="/post" class="shadow">
+                <div
+                  style="background-image: url(/assets/img/post-01.png)"
+                  class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
+                >
+                  <span
+                    class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
+                  ></span>
+                  <span
+                    class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base"
+                    >View On Upwork</span
+                  >
+                </div>
+                <div class="bg-white py-6 px-5 xl:py-8">
+                  <span class="block font-body text-lg font-semibold text-black"
+                    >Elasoft Yazılım
+                    </span
+                  >
+                  <span class="block pt-2 font-body text-grey-20"
+                    >"I had the pleasure of working with Sami on an ASP.NET MVC project and I am extremely impressed with their skills and expertise. Their attention to detail, communication skills, and ability to work within tight deadlines was exceptional.
+        
+                    Throughout the project, Sami demonstrated a deep understanding of ASP.NET and was able to troubleshoot and solve any issues that arose. He also made valuable suggestions and recommendations that greatly improved the functionality and usability of the project.
+                    
+                    His professionalism and dedication to the project were evident, and I would not hesitate to work with him again in the future. I highly recommend Sami to anyone looking for a skilled and reliable .net developer."</span
+                  >
+                </div>
+              </a>
+              <a href="/post" class="shadow">
+                <div
+                  style="background-image: url(/assets/img/post-02.png)"
+                  class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
+                >
+                  <span
+                    class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
+                  ></span>
+                  <span
+                    class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base"
+                    >View On Upwork</span
+                  >
+                </div>
+                <div class="bg-white py-6 px-5 xl:py-8">
+                  <span class="block font-body text-lg font-semibold text-black"
+                    >Zain Ali</span
+                  >
+                  <span class="block pt-2 font-body text-grey-20"
+                    >"He is a professional developer who knows how to build professional projects. HIs attention to detail is awesome.
+                    I totally recommend him."</span
+                  >
+                </div>
+              </a>
+              <a href="/post" class="shadow">
+                <div
+                  style="background-image: url(/assets/img/post-03.png)"
+                  class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
+                >
+                  <span
+                    class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
+                  ></span>
+                  <span
+                    class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base"
+                    >View On Upwork</span
+                  >
+                </div>
+                <div class="bg-white py-6 px-5 xl:py-8">
+                  <span class="block font-body text-lg font-semibold text-black"
+                    >Zain Ali</span
+                  >
+                  <span class="block pt-2 font-body text-grey-20"
+                    >"Great, work.
+                    This guy knows his work and he's a professional.
+                    Everything was smooth, will consider him for more work.
+                    10/10 for his efforts."</span
+                  >
+                </div>
+              </a>
             </div>
           </div>
         </div>
