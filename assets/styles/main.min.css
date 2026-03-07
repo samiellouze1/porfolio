@@ -1749,7 +1749,7 @@ html {
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(3 8 130 / var(--tw-bg-opacity, 1));
+  background-color: rgb(160 98 42 / var(--tw-bg-opacity, 1));
 }
 
 .bg-transparent {
@@ -1763,7 +1763,7 @@ html {
 
 .bg-yellow {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 231 28 / var(--tw-bg-opacity, 1));
+  background-color: rgb(232 184 122 / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-70 {
@@ -1881,10 +1881,6 @@ html {
   padding-bottom: 2rem;
 }
 
-.pb-12 {
-  padding-bottom: 3rem;
-}
-
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -1935,10 +1931,6 @@ html {
 
 .pt-2 {
   padding-top: 0.5rem;
-}
-
-.pt-20 {
-  padding-top: 5rem;
 }
 
 .pt-3 {
@@ -2075,7 +2067,7 @@ html {
 
 .text-primary {
   --tw-text-opacity: 1;
-  color: rgb(3 8 130 / var(--tw-text-opacity, 1));
+  color: rgb(160 98 42 / var(--tw-text-opacity, 1));
 }
 
 .text-secondary {
@@ -2090,7 +2082,7 @@ html {
 
 .text-yellow {
   --tw-text-opacity: 1;
-  color: rgb(249 231 28 / var(--tw-text-opacity, 1));
+  color: rgb(232 184 122 / var(--tw-text-opacity, 1));
 }
 
 .underline {
@@ -2196,7 +2188,7 @@ html {
 
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(3 8 130 / var(--tw-bg-opacity, 1));
+  background-color: rgb(160 98 42 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-white:hover {
@@ -2206,7 +2198,7 @@ html {
 
 .hover\:text-yellow:hover {
   --tw-text-opacity: 1;
-  color: rgb(249 231 28 / var(--tw-text-opacity, 1));
+  color: rgb(232 184 122 / var(--tw-text-opacity, 1));
 }
 
 .focus\:border-black:focus {
@@ -2256,7 +2248,7 @@ html {
 
 .focus\:ring-yellow:focus {
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(249 231 28 / var(--tw-ring-opacity, 1));
+  --tw-ring-color: rgb(232 184 122 / var(--tw-ring-opacity, 1));
 }
 
 .focus\:ring-opacity-50:focus {
@@ -2281,7 +2273,7 @@ html {
 
 .group:hover .group-hover\:bg-yellow {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 231 28 / var(--tw-bg-opacity, 1));
+  background-color: rgb(232 184 122 / var(--tw-bg-opacity, 1));
 }
 
 .group:hover .group-hover\:text-white {
@@ -2291,7 +2283,7 @@ html {
 
 .group:hover .group-hover\:text-yellow {
   --tw-text-opacity: 1;
-  color: rgb(249 231 28 / var(--tw-text-opacity, 1));
+  color: rgb(232 184 122 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:opacity-50 {
@@ -2368,10 +2360,6 @@ html {
     padding-bottom: 2rem;
   }
 
-  .sm\:pb-48 {
-    padding-bottom: 12rem;
-  }
-
   .sm\:pt-0 {
     padding-top: 0px;
   }
@@ -2386,10 +2374,6 @@ html {
 
   .sm\:pt-5 {
     padding-top: 1.25rem;
-  }
-
-  .sm\:pt-56 {
-    padding-top: 14rem;
   }
 
   .sm\:text-left {
@@ -2705,10 +2689,6 @@ html {
     padding-bottom: 6rem;
   }
 
-  .lg\:pb-48 {
-    padding-bottom: 12rem;
-  }
-
   .lg\:pl-12 {
     padding-left: 3rem;
   }
@@ -2723,10 +2703,6 @@ html {
 
   .lg\:pt-6 {
     padding-top: 1.5rem;
-  }
-
-  .lg\:pt-64 {
-    padding-top: 16rem;
   }
 
   .lg\:text-left {

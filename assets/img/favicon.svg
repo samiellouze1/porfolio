@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!-- Background circle -->
+  <circle cx="400" cy="400" r="380" fill="#2C1810"/>
+
+  <!-- Almond body -->
+  <ellipse cx="400" cy="400" rx="175" ry="275"
+    fill="#C8924A"
+    transform="rotate(-15 400 400)"/>
+
+  <!-- Almond highlight -->
+  <ellipse cx="355" cy="325" rx="62" ry="125"
+    fill="#E8B87A"
+    opacity="0.6"
+    transform="rotate(-15 355 325)"/>
+
+  <!-- Almond top tip -->
+  <ellipse cx="400" cy="165" rx="50" ry="75"
+    fill="#A0622A"
+    transform="rotate(-15 400 165)"/>
+
+  <!-- Subtle ridge line -->
+  <path d="M 338 250 Q 400 400 362 550"
+    stroke="#8B4513" stroke-width="20" fill="none" opacity="0.5"
+    transform="rotate(-15 400 400)"/>
+</svg>
