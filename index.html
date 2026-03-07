@@ -104,7 +104,7 @@
             const update = () => {
               const y = window.scrollY;
               const h = window.innerHeight;
-              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : 2;
+              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : y < h * 2.5 ? 2 : 3;
               this.navInAbout = this.currentSection >= 1;
             };
             window.addEventListener('scroll', update);
@@ -150,8 +150,8 @@
               <ul class="flex items-center">
                 <li class="group pl-6">
                   <a
-                    href="/assets/files/resume.pdf"
-                    download="Sami-Ellouze-Resume.pdf"
+                    href="oldindex.html" 
+                    target="_blank"
                     class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white no-underline hover:text-white"
                     >Download Resume</a
                   >
@@ -231,20 +231,32 @@
                 : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
             aria-label="Go to about"
           ></button>
-            <button
-              type="button"
-              @click="triggerNavItem('#work')"
-              class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-              :class="currentSection === 2
+          <button
+            type="button"
+            @click="triggerNavItem('#work')"
+            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+            :class="currentSection === 2
                 ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
                 : currentSection === 0
                   ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
                   : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
-              aria-label="Go to work"
-            ></button>
+            aria-label="Go to work"
+          ></button>
+          <button
+            type="button"
+            @click="triggerNavItem('#blog')"
+            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+            :class="currentSection === 3
+                ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+                : currentSection === 0
+                  ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                  : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+            aria-label="Go to blog"
+          ></button>
         </div>
-
-        <div id="hero"
+        <!-- Hero Section -->
+        <div
+          id="hero"
           class="snap-section relative min-h-screen bg-cover bg-center bg-no-repeat"
           style="background-image: url(/assets/img/bg-hero.jpg)"
         >
@@ -326,9 +338,8 @@
             </div>
           </div>
         </div>
-
-        <div id="about" 
-          class="snap-section min-h-screen bg-grey-50">
+        <!-- About Section -->
+        <div id="about" class="snap-section min-h-screen bg-grey-50">
           <div
             class="container flex flex-col items-center py-16 md:py-20 lg:flex-row"
           >
@@ -500,7 +511,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Work Section -->
         <div id="work"
           class="snap-section min-h-screen bg-white py-16 md:py-20"
           @wheel="onWorkScroll($event)"
@@ -517,13 +528,11 @@
               Here's what I did up to my graduation
             </h3>
 
-            <div
-              class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3"
-            >
+            <div class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3">
               <span
                 class="absolute inset-y-0 left-2/5 ml-10 hidden w-0.5 bg-grey-40 md:block"
               ></span>
-
+              <!-- ZNET IT -->
               <div
                 class="mt-8 flex flex-col text-center md:flex-row md:text-left"
               >
@@ -552,7 +561,7 @@
                 <div class="md:w-3/5">
                   <div class="relative flex md:pl-18">
                     <span
-                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 md:block transition-all duration-200 ease-out"
+                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 transition-all duration-200 ease-out md:block"
                       :class="currentJob === 0 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
                       @click="currentJob = 0"
                     ></span>
@@ -570,7 +579,7 @@
                           >Full Stack Developer</span
                         >
                         <div
-                          class="pt-2 transition-opacity duration-400 ease-out"
+                          class="duration-400 pt-2 transition-opacity ease-out"
                           x-show="currentJob === 0"
                           x-transition.opacity.duration.400ms
                         >
@@ -585,6 +594,7 @@
                   </div>
                 </div>
               </div>
+              <!-- ODDO BHF -->
               <div
                 class="mt-8 flex flex-col text-center md:flex-row md:text-left"
               >
@@ -613,7 +623,7 @@
                 <div class="md:w-3/5">
                   <div class="relative flex md:pl-18">
                     <span
-                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 md:block transition-all duration-200 ease-out"
+                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 transition-all duration-200 ease-out md:block"
                       :class="currentJob === 1 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
                       @click="currentJob = 1"
                     ></span>
@@ -631,7 +641,7 @@
                           >Backend Developer</span
                         >
                         <div
-                          class="pt-2 transition-opacity duration-400 ease-out"
+                          class="duration-400 pt-2 transition-opacity ease-out"
                           x-show="currentJob === 1"
                           x-transition.opacity.duration.400ms
                         >
@@ -648,6 +658,7 @@
                   </div>
                 </div>
               </div>
+              <!-- TAGV -->
               <div
                 class="mt-8 flex flex-col text-center md:flex-row md:text-left"
               >
@@ -676,7 +687,7 @@
                 <div class="md:w-3/5">
                   <div class="relative flex md:pl-18">
                     <span
-                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 md:block transition-all duration-200 ease-out"
+                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 transition-all duration-200 ease-out md:block"
                       :class="currentJob === 2 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
                       @click="currentJob = 2"
                     ></span>
@@ -694,16 +705,18 @@
                           >Full Stack Developer</span
                         >
                         <div
-                          class="pt-2 transition-opacity duration-400 ease-out"
+                          class="duration-400 pt-2 transition-opacity ease-out"
                           x-show="currentJob === 2"
                           x-transition.opacity.duration.400ms
                         >
                           <span class="block font-body text-black"
-                            >Built appointment scheduling and medical record modules using Spring Boot and Angular.
+                            >Built appointment scheduling and medical record
+                            modules using Spring Boot and Angular.
                             <br />
                             Integrated Keycloak for OAuth2 and RBAC security.
                             <br />
-                            Achieved 80%+ backend test coverage and delivered 29 user stories via GitLab CI/CD.</span
+                            Achieved 80%+ backend test coverage and delivered 29
+                            user stories via GitLab CI/CD.</span
                           >
                         </div>
                       </div>
@@ -714,96 +727,63 @@
             </div>
           </div>
         </div>
-        <div class="bg-grey-50" id="blog">
-          <div class="container py-16 md:py-20">
-            <h2
-              class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
-            >
-              I also had a few freelancing experiences
-            </h2>
-            <h4
-              class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
-            >
-              Some of my work and reviews
-            </h4>
-            <div
-              class="mx-auto grid w-full grid-cols-1 gap-6 pt-12 sm:w-3/4 lg:w-full lg:grid-cols-3 xl:gap-10"
-            >
-              <a href="/post" class="shadow">
-                <div
-                  style="background-image: url(/assets/img/post-01.png)"
-                  class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
-                >
-                  <span
-                    class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
-                  ></span>
-                  <span
-                    class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base"
-                    >View On Upwork</span
-                  >
-                </div>
-                <div class="bg-white py-6 px-5 xl:py-8">
-                  <span class="block font-body text-lg font-semibold text-black"
-                    >Elasoft Yazılım
-                    </span
-                  >
-                  <span class="block pt-2 font-body text-grey-20"
-                    >"I had the pleasure of working with Sami on an ASP.NET MVC project and I am extremely impressed with their skills and expertise. Their attention to detail, communication skills, and ability to work within tight deadlines was exceptional.
-        
-                    Throughout the project, Sami demonstrated a deep understanding of ASP.NET and was able to troubleshoot and solve any issues that arose. He also made valuable suggestions and recommendations that greatly improved the functionality and usability of the project.
-                    
-                    His professionalism and dedication to the project were evident, and I would not hesitate to work with him again in the future. I highly recommend Sami to anyone looking for a skilled and reliable .net developer."</span
-                  >
-                </div>
-              </a>
-              <a href="/post" class="shadow">
-                <div
-                  style="background-image: url(/assets/img/post-02.png)"
-                  class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
-                >
-                  <span
-                    class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
-                  ></span>
-                  <span
-                    class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base"
-                    >View On Upwork</span
-                  >
-                </div>
-                <div class="bg-white py-6 px-5 xl:py-8">
-                  <span class="block font-body text-lg font-semibold text-black"
-                    >Zain Ali</span
-                  >
-                  <span class="block pt-2 font-body text-grey-20"
-                    >"He is a professional developer who knows how to build professional projects. HIs attention to detail is awesome.
-                    I totally recommend him."</span
-                  >
-                </div>
-              </a>
-              <a href="/post" class="shadow">
-                <div
-                  style="background-image: url(/assets/img/post-03.png)"
-                  class="group relative h-72 bg-cover bg-center bg-no-repeat sm:h-84 lg:h-64 xl:h-72"
-                >
-                  <span
-                    class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to bg-cover bg-center bg-no-repeat opacity-10 transition-opacity group-hover:opacity-50"
-                  ></span>
-                  <span
-                    class="absolute right-0 bottom-0 mr-4 mb-4 block rounded-full border-2 border-white px-6 py-2 text-center font-body text-sm font-bold uppercase text-white md:text-base"
-                    >View On Upwork</span
-                  >
-                </div>
-                <div class="bg-white py-6 px-5 xl:py-8">
-                  <span class="block font-body text-lg font-semibold text-black"
-                    >Zain Ali</span
-                  >
-                  <span class="block pt-2 font-body text-grey-20"
-                    >"Great, work.
-                    This guy knows his work and he's a professional.
-                    Everything was smooth, will consider him for more work.
-                    10/10 for his efforts."</span
-                  >
-                </div>
-              </a>
+        <!-- Blog Section -->
+        <div id="blog" class="snap-section min-h-screen bg-grey-50 py-12 md:py-12" >
+          <div class=" container">
+            <div class="container bg-grey-50">
+              <h2 class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl">
+                I also had a few freelancing experiences
+              </h2>
+              <h4 class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
+                Some of my work and reviews
+              </h4>
+              <div class="mx-auto grid w-full grid-cols-1 gap-6 pt-12 sm:w-3/4 lg:w-full lg:grid-cols-3 xl:gap-10">
+                <!-- Turkish client -->
+                <review-card
+                  image="/assets/img/post-01.png"
+                  author="Elasoft Yazılım"
+                  platform="Upwork"
+                  stars="5"
+                  href="/post"
+                  review="I had the pleasure of working with Sami on an ASP.NET
+                  MVC project and I am extremely impressed with their skills
+                  and expertise. Their attention to detail, communication
+                  skills, and ability to work within tight deadlines was
+                  exceptional. Throughout the project, Sami demonstrated a
+                  deep understanding of ASP.NET and was able to troubleshoot
+                  and solve any issues that arose. He also made valuable
+                  suggestions and recommendations that greatly improved the
+                  functionality and usability of the project. His
+                  professionalism and dedication to the project were
+                  evident, and I would not hesitate to work with him again
+                  in the future. I highly recommend Sami to anyone looking
+                  for a skilled and reliable .net developer."
+                  project-title="E-Commerce Platform Redesign"
+                  project-desc="Full redesign of a legacy ASP.NET MVC application — new UI, REST API integration, and a 40% improvement in page load times."                
+                ></review-card>
+                <!-- Car rental project -->
+                <review-card
+                  image="/assets/img/post-02.png"
+                  author="Zain Ali"
+                  platform="Upwork"
+                  stars="5"
+                  href="/post"
+                  review="He is a professional developer who knows how to build
+                  professional projects. HIs attention to detail is awesome.
+                  I totally recommend him."
+                ></review-card>
+                <!-- Library project -->
+                <review-card
+                  image="/assets/img/post-03.png"
+                  author="Zain Ali"
+                  platform="Upwork"
+                  stars="5"
+                  href="/post"
+                  review="Great, work. This guy knows his work and he's a
+                  professional. Everything was smooth, will consider him for
+                  more work. 10/10 for his efforts."
+                ></review-card>
+              </div>
             </div>
           </div>
         </div>
@@ -811,5 +791,6 @@
     </div>
 
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/review-card.js"></script>
   </body>
 </html>
