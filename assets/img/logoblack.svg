@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 140" width="980" height="140">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Transparent background -->
+
+  <text
+    x="12"
+    y="105"
+    font-family="'Barlow Condensed', 'Impact', 'Arial Narrow', sans-serif"
+    font-size="96"
+    font-weight="700"
+    letter-spacing="4"
+    fill="#000000"
+  >DOWNLOAD RESUME</text>
+
+</svg>
