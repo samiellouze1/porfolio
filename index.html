@@ -99,6 +99,7 @@
         x-data="{
           currentSection: 0,
           navInAbout: false,
+          currentJob: 0,
           init() {
             const update = () => {
               const y = window.scrollY;
@@ -115,6 +116,22 @@
           triggerMobileNavItem(id) {
               mobileMenu = false;
               this.triggerNavItem(id)
+          },
+          onWorkScroll(event) {
+            const delta = event.deltaY || event.wheelDelta || 0;
+            if (delta > 0) {
+              // scrolling down
+              if (this.currentJob < 2) {
+                this.currentJob++;
+                event.preventDefault();
+              }
+            } else if (delta < 0) {
+              // scrolling up
+              if (this.currentJob > 0) {
+                this.currentJob--;
+                event.preventDefault();
+              }
+            }
           }
       }"
       >
@@ -487,6 +504,7 @@
         <div
           class="snap-section min-h-screen bg-white py-16 md:py-20"
           id="work"
+          @wheel="onWorkScroll($event)"
         >
           <div class="container">
             <h2
@@ -500,7 +518,9 @@
               Here's what I did up to my graduation
             </h3>
 
-            <div class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3">
+            <div
+              class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3"
+            >
               <span
                 class="absolute inset-y-0 left-2/5 ml-10 hidden w-0.5 bg-grey-40 md:block"
               ></span>
@@ -511,11 +531,17 @@
                 <div class="md:w-2/5">
                   <div class="flex justify-center md:justify-start">
                     <span class="shrink-0">
-                      <img
-                        src="/assets/img/logo-spotify.svg"
-                        class="h-auto w-32"
-                        alt="company logo"
-                      />
+                      <a
+                        href="https://znet.tn/"
+                        class="inline-block transition-transform duration-200 ease-out hover:scale-110"
+                        target="_blank"
+                      >
+                        <img
+                          src="/assets/img/znet-it-logo.png"
+                          class="h-auto w-32"
+                          alt="company logo"
+                        />
+                      </a>
                     </span>
                     <div class="relative ml-3 hidden w-full md:block">
                       <span
@@ -527,7 +553,9 @@
                 <div class="md:w-3/5">
                   <div class="relative flex md:pl-18">
                     <span
-                      class="absolute left-8 top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"
+                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 md:block transition-all duration-200 ease-out"
+                      :class="currentJob === 0 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
+                      @click="currentJob = 0"
                     ></span>
 
                     <div class="mt-1 flex">
@@ -542,7 +570,11 @@
                           class="block pt-2 font-header text-xl font-bold uppercase text-primary"
                           >Full Stack Developer</span
                         >
-                        <div class="pt-2">
+                        <div
+                          class="pt-2 transition-opacity duration-400 ease-out"
+                          x-show="currentJob === 0"
+                          x-transition.opacity.duration.400ms
+                        >
                           <span class="block font-body text-black"
                             >Conceived a poker planning platform aimed at aiding
                             scrum masters specify 2 common metrics about a given
@@ -560,11 +592,17 @@
                 <div class="md:w-2/5">
                   <div class="flex justify-center md:justify-start">
                     <span class="shrink-0">
-                      <img
-                        src="/assets/img/logo-microsoft.svg"
-                        class="h-auto w-32"
-                        alt="company logo"
-                      />
+                      <a
+                        href="https://www.oddobhf.com/"
+                        target="_blank"
+                        class="inline-block transition-transform duration-200 ease-out hover:scale-110"
+                      >
+                        <img
+                          src="/assets/img/oddo-bhf-logo.png"
+                          class="h-auto w-32"
+                          alt="ODDO BHF"
+                        />
+                      </a>
                     </span>
                     <div class="relative ml-3 hidden w-full md:block">
                       <span
@@ -576,7 +614,9 @@
                 <div class="md:w-3/5">
                   <div class="relative flex md:pl-18">
                     <span
-                      class="absolute left-8 top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"
+                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 md:block transition-all duration-200 ease-out"
+                      :class="currentJob === 1 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
+                      @click="currentJob = 1"
                     ></span>
 
                     <div class="mt-1 flex">
@@ -591,7 +631,11 @@
                           class="block pt-2 font-header text-xl font-bold uppercase text-primary"
                           >Backend Developer</span
                         >
-                        <div class="pt-2">
+                        <div
+                          class="pt-2 transition-opacity duration-400 ease-out"
+                          x-show="currentJob === 1"
+                          x-transition.opacity.duration.400ms
+                        >
                           <span class="block font-body text-black"
                             >Developed a microservices-based asset management
                             backend using .NET Core with JWT-secured domain
@@ -611,11 +655,17 @@
                 <div class="md:w-2/5">
                   <div class="flex justify-center md:justify-start">
                     <span class="shrink-0">
-                      <img
-                        src="/assets/img/logo-fedex.svg"
-                        class="h-auto w-32"
-                        alt="company logo"
-                      />
+                      <a
+                        href="https://www.linkedin.com/company/tagamuta%C2%B2valley/"
+                        class="inline-block transition-transform duration-200 ease-out hover:scale-110"
+                        target="_blank"
+                      >
+                        <img
+                          src="/assets/img/tagv-logo.png"
+                          class="h-auto w-32"
+                          alt="TAGV"
+                        />
+                      </a>
                     </span>
                     <div class="relative ml-3 hidden w-full md:block">
                       <span
@@ -627,7 +677,9 @@
                 <div class="md:w-3/5">
                   <div class="relative flex md:pl-18">
                     <span
-                      class="absolute left-8 top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"
+                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 md:block transition-all duration-200 ease-out"
+                      :class="currentJob === 2 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
+                      @click="currentJob = 2"
                     ></span>
 
                     <div class="mt-1 flex">
@@ -642,12 +694,16 @@
                           class="block pt-2 font-header text-xl font-bold uppercase text-primary"
                           >Full Stack Developer</span
                         >
-                        <div class="pt-2">
+                        <div
+                          class="pt-2 transition-opacity duration-400 ease-out"
+                          x-show="currentJob === 2"
+                          x-transition.opacity.duration.400ms
+                        >
                           <span class="block font-body text-black"
                             >Built appointment scheduling and medical record modules using Spring Boot and Angular.
-                            <br>
+                            <br />
                             Integrated Keycloak for OAuth2 and RBAC security.
-                            <br>
+                            <br />
                             Achieved 80%+ backend test coverage and delivered 29 user stories via GitLab CI/CD.</span
                           >
                         </div>

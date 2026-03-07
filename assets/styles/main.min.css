@@ -1300,6 +1300,10 @@ html {
   right: 0px;
 }
 
+.right-6 {
+  right: 1.5rem;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -1310,14 +1314,6 @@ html {
 
 .top-1\/2 {
   top: 50%;
-}
-
-.left-0 {
-  left: 0px;
-}
-
-.right-6 {
-  right: 1.5rem;
 }
 
 .z-20 {
@@ -1365,6 +1361,10 @@ html {
   margin-left: 0.75rem;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .mr-3 {
   margin-right: 0.75rem;
 }
@@ -1405,12 +1405,12 @@ html {
   margin-top: 2rem;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
 .block {
   display: block;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .inline {
@@ -1465,6 +1465,10 @@ html {
   height: 0.75rem;
 }
 
+.h-3\.5 {
+  height: 0.875rem;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -1479,10 +1483,6 @@ html {
 
 .h-auto {
   height: auto;
-}
-
-.h-3\.5 {
-  height: 0.875rem;
 }
 
 .max-h-screen {
@@ -1509,6 +1509,14 @@ html {
   width: 6rem;
 }
 
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-3\.5 {
+  width: 0.875rem;
+}
+
 .w-3\/4 {
   width: 75%;
 }
@@ -1531,14 +1539,6 @@ html {
 
 .w-full {
   width: 100%;
-}
-
-.w-3 {
-  width: 0.75rem;
-}
-
-.w-3\.5 {
-  width: 0.875rem;
 }
 
 .max-w-4xl {
@@ -1634,6 +1634,10 @@ html {
           justify-content: space-between;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
 .gap-5 {
   gap: 1.25rem;
 }
@@ -1644,10 +1648,6 @@ html {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-4 {
-  gap: 1rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -1743,6 +1743,11 @@ html {
   border-color: rgb(230 229 236 / var(--tw-border-opacity, 1));
 }
 
+.border-primary {
+  --tw-border-opacity: 1;
+  border-color: rgb(160 98 42 / var(--tw-border-opacity, 1));
+}
+
 .border-secondary {
   --tw-border-opacity: 1;
   border-color: rgb(37 36 38 / var(--tw-border-opacity, 1));
@@ -1755,11 +1760,6 @@ html {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
-}
-
-.border-primary {
-  --tw-border-opacity: 1;
-  border-color: rgb(160 98 42 / var(--tw-border-opacity, 1));
 }
 
 .bg-black {
@@ -1804,10 +1804,6 @@ html {
 .bg-yellow {
   --tw-bg-opacity: 1;
   background-color: rgb(232 184 122 / var(--tw-bg-opacity, 1));
-}
-
-.bg-white\/95 {
-  background-color: rgb(255 255 255 / 0.95);
 }
 
 .bg-opacity-70 {
@@ -1925,11 +1921,6 @@ html {
   padding-bottom: 2rem;
 }
 
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -2000,10 +1991,6 @@ html {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pr-6 {
-  padding-right: 1.5rem;
 }
 
 .text-left {
@@ -2224,9 +2211,25 @@ html {
           transition-duration: 150ms;
 }
 
-.duration-300 {
-  -webkit-transition-duration: 300ms;
-          transition-duration: 300ms;
+.transition-transform {
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 150ms;
+          transition-duration: 150ms;
+}
+
+.duration-200 {
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+}
+
+.ease-out {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
 .hover\:scale-105:hover {
@@ -2319,11 +2322,6 @@ html {
   --tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity, 1));
 }
 
-.focus\:ring-yellow:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(232 184 122 / var(--tw-ring-opacity, 1));
-}
-
 .focus\:ring-primary:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(160 98 42 / var(--tw-ring-opacity, 1));
@@ -2332,6 +2330,11 @@ html {
 .focus\:ring-white:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity, 1));
+}
+
+.focus\:ring-yellow:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(232 184 122 / var(--tw-ring-opacity, 1));
 }
 
 .focus\:ring-opacity-50:focus {
@@ -2600,11 +2603,6 @@ html {
     padding-bottom: 5rem;
   }
 
-  .md\:py-14 {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
-
   .md\:pl-1 {
     padding-left: 0.25rem;
   }
@@ -2736,10 +2734,6 @@ html {
 
   .lg\:w-full {
     width: 100%;
-  }
-
-  .lg\:w-10 {
-    width: 2.5rem;
   }
 
   .lg\:grid-cols-2 {
