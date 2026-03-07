@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2500" height="2500" viewBox="0 0 200 200">
+  <!-- 3 small dots above FIS -->
+  <circle cx="76" cy="68" r="5.5" fill="#999"/>
+  <circle cx="100" cy="68" r="5.5" fill="#999"/>
+  <circle cx="124" cy="68" r="5.5" fill="#999"/>
+  <!-- FIS text: thin, rounded, wide-spaced -->
+  <text
+    x="100" y="140"
+    font-family="'Trebuchet MS', 'Century Gothic', 'Gill Sans', sans-serif"
+    font-size="72"
+    font-weight="300"
+    fill="#999"
+    text-anchor="middle"
+    letter-spacing="8"
+  >FiS</text>
+</svg>

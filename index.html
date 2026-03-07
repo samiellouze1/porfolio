@@ -83,6 +83,9 @@
         scroll-snap-align: start;
         scroll-snap-stop: always;
       }
+      .text-indent-paragraph {
+        text-indent: 2em;
+      }
     </style>
   </head>
 
@@ -94,9 +97,15 @@
     <div id="main" class="relative">
       <div
         x-data="{
+          currentSection: 0,
           navInAbout: false,
           init() {
-            const update = () => { this.navInAbout = window.scrollY > window.innerHeight * 0.5 };
+            const update = () => {
+              const y = window.scrollY;
+              const h = window.innerHeight;
+              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : 2;
+              this.navInAbout = this.currentSection >= 1;
+            };
             window.addEventListener('scroll', update);
             update();
           },
@@ -120,7 +129,7 @@
                 />
               </a>
             </div> -->
-            <div class="hidden lg:block ml-auto">
+            <div class="ml-auto hidden lg:block">
               <ul class="flex items-center">
                 <li class="group pl-6">
                   <a
@@ -169,11 +178,18 @@
                   >About</span
                 >
               </li>
+              <li class="py-2">
+                <span
+                  @click="triggerMobileNavItem('#work')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >Work</span
+                >
+              </li>
             </ul>
           </div>
         </div>
 
-        <!-- Page indicator dots: main = white border + white fill; about = primary border + primary fill -->
+        <!-- Page indicator dots: hero = white; about/work = primary -->
         <div
           class="fixed right-6 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-4"
           aria-label="Page navigation"
@@ -182,7 +198,7 @@
             type="button"
             @click="triggerNavItem('#hero')"
             class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-            :class="!navInAbout
+            :class="currentSection === 0
               ? 'h-3.5 w-3.5 scale-125 border-2 border-white bg-white focus:ring-white'
               : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
             aria-label="Go to main"
@@ -191,10 +207,23 @@
             type="button"
             @click="triggerNavItem('#about')"
             class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-            :class="navInAbout
+            :class="currentSection === 1
               ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
-              : 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'"
+              : currentSection === 0
+                ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
             aria-label="Go to about"
+          ></button>
+          <button
+            type="button"
+            @click="triggerNavItem('#work')"
+            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+            :class="currentSection === 2
+              ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+              : currentSection === 0
+                ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+            aria-label="Go to work"
           ></button>
         </div>
 
@@ -300,34 +329,45 @@
               <p class="pt-6 font-body leading-relaxed text-grey-20">
                 Backend Software Engineer with 1+ year of experience building
                 and maintaining large-scale capital markets systems at Fidelity
-                Information Services. Experienced in Java, Spring Boot and
-                relational databases. Contributed to mission-critical financial
-                applications serving major international institutions. Backend
-                Software Engineer with 1+ year of experience building and
-                maintaining large-scale capital markets systems at Fidelity
-                Information Services. Experienced in Java, Spring Boot and
-                relational databases. Contributed to mission-critical financial
-                applications serving major international institutions. Backend
-                Software Engineer with 1+ year of experience building and
-                maintaining large-scale capital markets systems at Fidelity
-                Information Services. Experienced in Java, Spring Boot and
-                relational databases. Contributed to mission-critical financial
-                applications serving major international institutions. Backend
-                Software Engineer with 1+ year of experience building and
-                maintaining large-scale capital markets systems at Fidelity
-                Information Services. Experienced in Java, Spring Boot and
-                relational databases. Contributed to mission-critical financial
-                applications serving major international institutions. Backend
-                Software Engineer with 1+ year of experience building and
-                maintaining large-scale capital markets systems at Fidelity
-                Information Services. Experienced in Java, Spring Boot and
-                relational databases. Contributed to mission-critical financial
-                applications serving major international institutions. Backend
-                Software Engineer with 1+ year of experience building and
-                maintaining large-scale capital markets systems at Fidelity
-                Information Services. Experienced in Java, Spring Boot and
-                relational databases. Contributed to mission-critical financial
-                applications serving major international institutions.
+                Information Services. I focus on robust, maintainable solutions
+                for high-stakes financial applications. Backend Software
+                Engineer with 1+ year of experience building and maintaining
+                large-scale capital markets systems at Fidelity Information
+                Services. I focus on robust, maintainable solutions for
+                high-stakes financial applications.
+              </p>
+              <p class="pt-4 font-body leading-relaxed text-grey-20">
+                My stack centers on Java, Spring Boot, and relational databases.
+                I’ve contributed to mission-critical systems that process
+                capital markets data and serve major international institutions.
+                Backend Software Engineer with 1+ year of experience building
+                and maintaining large-scale capital markets systems at Fidelity
+                Information Services. I focus on robust, maintainable solutions
+                for high-stakes financial applications. Backend Software
+                Engineer with 1+ year of experience building and maintaining
+                large-scale capital markets systems at Fidelity Information
+                Services. I focus on robust, maintainable solutions for
+                high-stakes financial applications. Backend Software Engineer
+                with 1+ year of experience building and maintaining large-scale
+                capital markets systems at Fidelity Information Services. I
+                focus on robust, maintainable solutions for high-stakes
+                financial applications.
+              </p>
+              <p class="pt-4 font-body leading-relaxed text-grey-20">
+                I’m motivated by clear architecture, performance, and
+                reliability—and by shipping features that help teams and clients
+                operate with confidence at scale. I’m motivated by clear
+                architecture, performance, and reliability—and by shipping
+                features that help teams and clients operate with confidence at
+                scale. Backend Software Engineer with 1+ year of experience
+                building and maintaining large-scale capital markets systems at
+                Fidelity Information Services. I focus on robust, maintainable
+                solutions for high-stakes financial applications.
+              </p>
+              <p class="pt-4 font-body leading-relaxed text-grey-20">
+                I’m motivated by clear architecture, performance, and
+                reliability—and by shipping features that help teams and clients
+                operate with confidence at scale.
               </p>
               <div
                 class="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start"
@@ -438,6 +478,182 @@
                     class="h-3 rounded-full bg-primary"
                     style="width: 35%"
                   ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="snap-section min-h-screen bg-white py-16 md:py-20"
+          id="work"
+        >
+          <div class="container">
+            <h2
+              class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+            >
+              My internships
+            </h2>
+            <h3
+              class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+            >
+              Here's what I did up to my graduation
+            </h3>
+
+            <div class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3">
+              <span
+                class="absolute inset-y-0 left-2/5 ml-10 hidden w-0.5 bg-grey-40 md:block"
+              ></span>
+
+              <div
+                class="mt-8 flex flex-col text-center md:flex-row md:text-left"
+              >
+                <div class="md:w-2/5">
+                  <div class="flex justify-center md:justify-start">
+                    <span class="shrink-0">
+                      <img
+                        src="/assets/img/logo-spotify.svg"
+                        class="h-auto w-32"
+                        alt="company logo"
+                      />
+                    </span>
+                    <div class="relative ml-3 hidden w-full md:block">
+                      <span
+                        class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-3/5">
+                  <div class="relative flex md:pl-18">
+                    <span
+                      class="absolute left-8 top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"
+                    ></span>
+
+                    <div class="mt-1 flex">
+                      <i
+                        class="bx bxs-right-arrow hidden text-primary md:block"
+                      ></i>
+                      <div class="md:-mt-1 md:pl-8">
+                        <span class="block font-body font-bold text-grey-40"
+                          >Aug 2022 - Sep 2022</span
+                        >
+                        <span
+                          class="block pt-2 font-header text-xl font-bold uppercase text-primary"
+                          >Full Stack Developer</span
+                        >
+                        <div class="pt-2">
+                          <span class="block font-body text-black"
+                            >Conceived a poker planning platform aimed at aiding
+                            scrum masters specify 2 common metrics about a given
+                            user story: priority and story points.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mt-8 flex flex-col text-center md:flex-row md:text-left"
+              >
+                <div class="md:w-2/5">
+                  <div class="flex justify-center md:justify-start">
+                    <span class="shrink-0">
+                      <img
+                        src="/assets/img/logo-microsoft.svg"
+                        class="h-auto w-32"
+                        alt="company logo"
+                      />
+                    </span>
+                    <div class="relative ml-3 hidden w-full md:block">
+                      <span
+                        class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-3/5">
+                  <div class="relative flex md:pl-18">
+                    <span
+                      class="absolute left-8 top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"
+                    ></span>
+
+                    <div class="mt-1 flex">
+                      <i
+                        class="bx bxs-right-arrow hidden text-primary md:block"
+                      ></i>
+                      <div class="md:-mt-1 md:pl-8">
+                        <span class="block font-body font-bold text-grey-40"
+                          >Jul 2023 - Sep 2023</span
+                        >
+                        <span
+                          class="block pt-2 font-header text-xl font-bold uppercase text-primary"
+                          >Backend Developer</span
+                        >
+                        <div class="pt-2">
+                          <span class="block font-body text-black"
+                            >Developed a microservices-based asset management
+                            backend using .NET Core with JWT-secured domain
+                            services. Implemented inter-service communication
+                            (HTTP, gRPC, RabbitMQ) and containerized the
+                            platform using Docker and Kubernetes.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mt-8 flex flex-col text-center md:flex-row md:text-left"
+              >
+                <div class="md:w-2/5">
+                  <div class="flex justify-center md:justify-start">
+                    <span class="shrink-0">
+                      <img
+                        src="/assets/img/logo-fedex.svg"
+                        class="h-auto w-32"
+                        alt="company logo"
+                      />
+                    </span>
+                    <div class="relative ml-3 hidden w-full md:block">
+                      <span
+                        class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-3/5">
+                  <div class="relative flex md:pl-18">
+                    <span
+                      class="absolute left-8 top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"
+                    ></span>
+
+                    <div class="mt-1 flex">
+                      <i
+                        class="bx bxs-right-arrow hidden text-primary md:block"
+                      ></i>
+                      <div class="md:-mt-1 md:pl-8">
+                        <span class="block font-body font-bold text-grey-40"
+                          >Mar 2024 - Aug 2024</span
+                        >
+                        <span
+                          class="block pt-2 font-header text-xl font-bold uppercase text-primary"
+                          >Full Stack Developer</span
+                        >
+                        <div class="pt-2">
+                          <span class="block font-body text-black"
+                            >Built appointment scheduling and medical record modules using Spring Boot and Angular.
+                            <br>
+                            Integrated Keycloak for OAuth2 and RBAC security.
+                            <br>
+                            Achieved 80%+ backend test coverage and delivered 29 user stories via GitLab CI/CD.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

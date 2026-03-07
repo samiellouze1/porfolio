@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2500" height="2500" viewBox="0 0 200 200">
+  <!-- Rounded square background -->
+  <rect x="10" y="10" width="180" height="180" rx="32" fill="#999"/>
+  <!-- Connection lines in white -->
+  <line x1="65" y1="100" x2="100" y2="68" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="100" y1="68" x2="135" y2="100" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="65" y1="100" x2="100" y2="132" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <line x1="100" y1="132" x2="135" y2="100" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  <!-- Left node -->
+  <circle cx="65" cy="100" r="14" fill="white"/>
+  <!-- Top node -->
+  <circle cx="100" cy="68" r="14" fill="white"/>
+  <!-- Right node -->
+  <circle cx="135" cy="100" r="14" fill="white"/>
+  <!-- Bottom node (lighter to suggest the green accent) -->
+  <circle cx="100" cy="132" r="14" fill="#ccc"/>
+</svg>
