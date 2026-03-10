@@ -104,7 +104,7 @@
             const update = () => {
               const y = window.scrollY;
               const h = window.innerHeight;
-              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : y < h * 2.5 ? 2 : 3;
+              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : y < h * 2.5 ? 2 : y < h * 3.5 ? 3 : 4;
               this.navInAbout = this.currentSection >= 1;
             };
             window.addEventListener('scroll', update);
@@ -202,6 +202,20 @@
                   >Work</span
                 >
               </li>
+              <li class="py-2">
+                <span
+                  @click="triggerMobileNavItem('#blog')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >Work</span
+                >
+              </li>
+              <li class="py-2">
+                <span
+                  @click="triggerMobileNavItem('#portfolio')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >Work</span
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -253,6 +267,17 @@
                   : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
             aria-label="Go to blog"
           ></button>
+          <button
+          type="button"
+          @click="triggerNavItem('#blog')"
+          class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+          :class="currentSection === 4
+              ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+              : currentSection === 0
+                ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+          aria-label="Go to portfolio"
+        ></button>
         </div>
         <!-- Hero Section -->
         <div
@@ -729,15 +754,25 @@
         </div>
         <!-- Blog Section -->
         <div id="blog" class="snap-section min-h-screen bg-grey-50 py-12 md:py-12" >
-          <div class=" container">
-            <div class="container bg-grey-50">
+          <div class="container px-4 md:px-6">
+            <div class="bg-grey-50">
               <h2 class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl">
                 I also had a few freelancing experiences
               </h2>
               <h4 class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl">
                 Some of my work and reviews
               </h4>
-              <div class="mx-auto grid w-full grid-cols-1 gap-6 pt-12 sm:w-3/4 lg:w-full lg:grid-cols-3 xl:gap-10">
+              <div class="grid w-full grid-cols-1 gap-6 pt-12 lg:grid-cols-4 xl:gap-10">
+                <!-- Moroccan client-->
+                <review-card
+                  images="/assets/img/post-03.png, /assets/img/post-03.png"
+                  author="Salwa El"
+                  platform="Fiverr"
+                  stars="5"
+                  href="/post"
+                  review="The work delivered was very satisfing ! I recommend him 200%"
+                  class="col-span-1"
+                ></review-card>
                 <!-- Turkish client -->
                 <review-card
                   image="/assets/img/post-01.png"
@@ -784,6 +819,44 @@
                   more work. 10/10 for his efforts."
                 ></review-card>
               </div>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Section-->
+        <div id="portfolio" class="snap-section min-h-screen bg-white py-12 md:py-12">
+          <div class = "container">
+            <h2
+              class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+            >
+              Hobbies and Associative Life
+            </h2>
+            <h3
+              class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+            >
+              Here is a glimpse of myself outside of work.
+            </h3>
+          
+            <div class="mx-auto grid w-full grid-cols-1 gap-8 pt-12 sm:w-3/4 md:gap-10 lg:w-full lg:grid-cols-2">
+              <a
+                href="/"
+                class="mx-auto transform transition-all hover:scale-105 md:mx-0"
+              >
+                <img
+                  src="/assets/img/portfolio-apple.jpeg"
+                  class="w-full shadow"
+                  alt="portfolio image"
+                />
+              </a>
+              <a
+                href="/"
+                class="mx-auto transform transition-all hover:scale-105 md:mx-0"
+              >
+                <img
+                  src="/assets/img/portfolio-stripe.jpeg"
+                  class="w-full shadow"
+                  alt="portfolio image"
+                />
+              </a>
             </div>
           </div>
         </div>
