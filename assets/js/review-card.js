@@ -12,7 +12,7 @@ class ReviewCard extends HTMLElement {
 
     // Parse up to 4 images; fall back to single `image` attribute
     const images = imagesAttr
-      ? imagesAttr.split(',').map(s => s.trim()).filter(Boolean).slice(0, 4)
+      ? imagesAttr.split(',').map(s => s.trim()).filter(Boolean).slice(0, 5)
       : imageFallback ? [imageFallback] : [];
 
     const starsFilled = '★'.repeat(Math.min(Math.max(stars, 0), 5));
@@ -48,15 +48,23 @@ class ReviewCard extends HTMLElement {
         review-card .rc-panels-wrapper {
           position: relative;
           overflow: hidden;
+          height: 400px; /* default content height on wide screens */
+        }
+        @media (max-width: 1024px) {
+          review-card .rc-panels-wrapper {
+            height: 200px; /* slightly shorter on half-width or smaller screens */
+          }
         }
         review-card .rc-panel {
           width: 100%;
+          height: 100%;
           visibility: hidden;
           opacity: 0;
           position: absolute;
           top: 0;
           left: 0;
           transition: opacity 0.15s ease;
+          overflow-y: auto; /* scroll inside panel when content is long */
         }
         review-card .rc-panel.active {
           visibility: visible;
@@ -120,8 +128,12 @@ class ReviewCard extends HTMLElement {
               class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to opacity-10 transition-opacity group-hover:opacity-50 z-[1]"
             ></span>
             <span
-              class="absolute bottom-0 right-0 mb-4 mr-4 block rounded-full border-2 border-grey-10 px-4 py-2 text-center font-body text-sm font-bold uppercase text-grey-10 group-hover:border-white group-hover:text-white transition-colors duration-200 z-[2]"
-            >${platform}</span>
+              class="absolute bottom-0 right-0 mb-4 mr-4 block rounded-full border-2 px-4 py-2 text-center text-grey-20 border-grey-20 font-body text-sm font-bold uppercase 
+              group-hover:text-white group-hover:border-white
+              transition-all duration-300 z-[2]"
+            >
+            ${platform}
+            </span>
             ${dotsHTML}
           </div>
         </a>
@@ -190,39 +202,83 @@ class ReviewCard extends HTMLElement {
       });
     }
 
-    // ── Panel height measurement ─────────────────────────────────
-    const wrapper = this.querySelector('.rc-panels-wrapper');
+    // ── Panel switching (fixed height with scrollbar) ────────────
     const panels  = [...this.querySelectorAll('.rc-panel')];
+    const tabButtons = [...this.querySelectorAll('.rc-tab-btn')];
 
-    panels.forEach(p => {
-      p.classList.add('active');
-      p.style.position   = 'relative';
-      p.style.visibility = 'visible';
-      p.style.opacity    = '1';
+    const setActivePanel = (target) => {
+      tabButtons.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      const btn = tabButtons.find(b => b.dataset.tab === target);
+      const panel = this.querySelector(`[data-panel="${target}"]`);
+      if (btn) btn.classList.add('active');
+      if (panel) panel.classList.add('active');
+    };
+
+    // Ensure only the review panel is active by default
+    setActivePanel('review');
+
+    let userInteractedWithTabs = false;
+    let autoSwitched           = false;
+    let autoSwitchTimeoutId    = null;
+
+    // Tab switching
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        userInteractedWithTabs = true;
+        const target = btn.dataset.tab;
+        setActivePanel(target);
+      });
     });
 
-    requestAnimationFrame(() => {
-      const maxHeight = Math.max(...panels.map(p => p.scrollHeight));
-      wrapper.style.height = maxHeight + 'px';
+    // Start (or restart) the auto-switch countdown
+    const startAutoSwitch = () => {
+      if (userInteractedWithTabs) return;
+      if (autoSwitchTimeoutId !== null) {
+        clearTimeout(autoSwitchTimeoutId);
+      }
+      autoSwitched = false;
+      autoSwitchTimeoutId = setTimeout(() => {
+        if (!userInteractedWithTabs) {
+          setActivePanel('project');
+          autoSwitched = true;
+        }
+      }, 1500);
+    };
 
-      panels.forEach((p, i) => {
-        p.style.position   = '';
-        p.style.visibility = '';
-        p.style.opacity    = '';
-        if (i !== 0) p.classList.remove('active');
-      });
-
-      // Tab switching
-      this.querySelectorAll('.rc-tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const target = btn.dataset.tab;
-          this.querySelectorAll('.rc-tab-btn').forEach(b => b.classList.remove('active'));
-          this.querySelectorAll('.rc-panel').forEach(p => p.classList.remove('active'));
-          btn.classList.add('active');
-          this.querySelector(`[data-panel="${target}"]`).classList.add('active');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Each time the blog section comes into view:
+            // - reset to Review
+            // - restart the 2s timer
+            if (!userInteractedWithTabs) {
+              setActivePanel('review');
+            }
+            startAutoSwitch();
+          } else {
+            // When leaving the blog section, clear any pending auto-switch
+            if (autoSwitchTimeoutId !== null) {
+              clearTimeout(autoSwitchTimeoutId);
+              autoSwitchTimeoutId = null;
+            }
+          }
         });
-      });
-    });
+      }, { threshold: 0.6 });
+
+      // Drive the behavior from the blog section becoming visible
+      const blogSection = document.querySelector('#blog');
+      if (blogSection) {
+        observer.observe(blogSection);
+      } else {
+        // If we can't find the blog section, fall back to observing the card
+        observer.observe(this);
+      }
+    } else {
+      // Fallback: start immediately if IntersectionObserver is not available
+      startAutoSwitch();
+    }
   }
 }
 

@@ -97,6 +97,7 @@
     <div id="main" class="relative">
       <div
         x-data="{
+          lastScrollTime: 0,
           currentSection: 0,
           navInAbout: false,
           currentJob: 0,
@@ -118,21 +119,22 @@
               this.triggerNavItem(id)
           },
           onWorkScroll(event) {
-            const delta = event.deltaY || event.wheelDelta || 0;
-            if (delta > 0) {
-              // scrolling down
-              if (this.currentJob < 2) {
-                this.currentJob++;
-                event.preventDefault();
-              }
-            } else if (delta < 0) {
-              // scrolling up
-              if (this.currentJob > 0) {
-                this.currentJob--;
-                event.preventDefault();
-              }
+            const delta = event.deltaX || 0;
+            if (Math.abs(delta) < 10) return; // ignore tiny nudges
+            
+            const now = Date.now();
+            if (now - this.lastScrollTime < 400) return;
+
+            if (delta > 0 && this.currentJob < 2) {
+              this.currentJob++;
+              event.preventDefault();
+              this.lastScrollTime = now;
+            } else if (delta < 0 && this.currentJob > 0) {
+              this.currentJob--;
+              event.preventDefault();
+              this.lastScrollTime = now;
             }
-          }
+          },
       }"
       >
         <div class="absolute top-0 z-50 w-full py-3 sm:py-5">
@@ -765,17 +767,19 @@
               <div class="grid w-full grid-cols-1 gap-6 pt-12 lg:grid-cols-4 xl:gap-10">
                 <!-- Moroccan client-->
                 <review-card
-                  images="/assets/img/post-03.png, /assets/img/post-03.png"
-                  author="Salwa El"
+                  images="/assets/img/toulouse/1.png, /assets/img/toulouse/2.png"
+                  author="Toulouse Airport"
                   platform="Fiverr"
                   stars="5"
                   href="/post"
                   review="The work delivered was very satisfing ! I recommend him 200%"
                   class="col-span-1"
+                  project-title="Toulouse E-commerce Website | ASP.NET MVC"
+                  project-desc="An e-commerce website prototype. This website is a prototype for a client who wants to sell products online. It is a simple website with a few features like a shopping cart, a checkout process, and a contact form."
                 ></review-card>
                 <!-- Turkish client -->
                 <review-card
-                  image="/assets/img/post-01.png"
+                  images="/assets/img/nazim/1.jpg, /assets/img/nazim/2.jpg, /assets/img/nazim/3.jpg, /assets/img/nazim/4.jpg"
                   author="Elasoft Yazılım"
                   platform="Upwork"
                   stars="5"
@@ -793,12 +797,12 @@
                   evident, and I would not hesitate to work with him again
                   in the future. I highly recommend Sami to anyone looking
                   for a skilled and reliable .net developer."
-                  project-title="E-Commerce Platform Redesign"
-                  project-desc="Full redesign of a legacy ASP.NET MVC application — new UI, REST API integration, and a 40% improvement in page load times."                
+                  project-title="Debt Calculation and Repayment System | ASP.NET MVC"
+                  project-desc="A two-role web platform for managing scholarship users' debts and installment plans. Staff register users, manage monthly debt lists, and send notification emails with login links. Scholarship users log in, view their debt, and submit installment payment requests. Staff approve or deny requests, triggering email notifications. User statuses are automatically updated based on activity, with additional manual statuses for edge cases."                
                 ></review-card>
                 <!-- Car rental project -->
                 <review-card
-                  image="/assets/img/post-02.png"
+                  images="/assets/img/library/1.png, /assets/img/library/2.png, /assets/img/library/3.png, /assets/img/library/4.png, /assets/img/library/5.png"
                   author="Zain Ali"
                   platform="Upwork"
                   stars="5"
@@ -806,10 +810,12 @@
                   review="He is a professional developer who knows how to build
                   professional projects. HIs attention to detail is awesome.
                   I totally recommend him."
+                  project-title="Library Management System | ASP.NET MVC"
+                  project-desc="A web platform for managing library resources and user activities. Staff manage books, authors, and categories, while users search, borrow, and return books. Automated email notifications for due dates and overdue notices ensure timely returns. Admin dashboard tracks borrowing trends and user activity, enhancing library operations."
                 ></review-card>
                 <!-- Library project -->
                 <review-card
-                  image="/assets/img/post-03.png"
+                  images="/assets/img/carrental/1.png, /assets/img/carrental/2.png, /assets/img/carrental/3.png, /assets/img/carrental/4.png"
                   author="Zain Ali"
                   platform="Upwork"
                   stars="5"
@@ -817,6 +823,8 @@
                   review="Great, work. This guy knows his work and he's a
                   professional. Everything was smooth, will consider him for
                   more work. 10/10 for his efforts."
+                  project-title="Car Rental Management System | ASP.NET MVC"
+                  project-desc="A web platform for managing car rentals and customer bookings. Staff manage car inventory, handle reservations, and track rental status. Users browse and book cars, view availability, and complete checkout processes. Automated email notifications for booking confirmations and reminders ensure a smooth rental experience. Admin dashboard tracks rental activity and user interactions, enhancing operational efficiency."
                 ></review-card>
               </div>
             </div>

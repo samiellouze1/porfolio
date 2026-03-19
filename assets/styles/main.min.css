@@ -1332,10 +1332,6 @@ html {
   z-index: 70;
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -1493,10 +1489,6 @@ html {
   height: auto;
 }
 
-.h-60 {
-  height: 15rem;
-}
-
 .max-h-screen {
   max-height: 100vh;
 }
@@ -1567,12 +1559,6 @@ html {
 
 .max-w-xl {
   max-width: 36rem;
-}
-
-.flex-1 {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 0%;
-          flex: 1 1 0%;
 }
 
 .shrink-0 {
@@ -1666,10 +1652,6 @@ html {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -1782,11 +1764,6 @@ html {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
-}
-
-.border-grey-10 {
-  --tw-border-opacity: 1;
-  border-color: rgb(108 107 109 / var(--tw-border-opacity, 1));
 }
 
 .bg-black {
@@ -1948,26 +1925,6 @@ html {
   padding-bottom: 2rem;
 }
 
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
-.px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -2121,10 +2078,6 @@ html {
 
 .leading-tight {
   line-height: 1.25;
-}
-
-.leading-none {
-  line-height: 1;
 }
 
 .tracking-wide {
@@ -2408,11 +2361,6 @@ html {
   display: none;
 }
 
-.group:hover .group-hover\:border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
-}
-
 .group:hover .group-hover\:bg-yellow {
   --tw-bg-opacity: 1;
   background-color: rgb(232 184 122 / var(--tw-bg-opacity, 1));
@@ -2644,6 +2592,11 @@ html {
     gap: 2rem;
   }
 
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .md\:py-10 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
@@ -2662,26 +2615,6 @@ html {
   .md\:py-20 {
     padding-top: 5rem;
     padding-bottom: 5rem;
-  }
-
-  .md\:px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  .md\:px-3 {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-
-  .md\:px-1 {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-
-  .md\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
   }
 
   .md\:pl-1 {
@@ -2748,11 +2681,6 @@ html {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
   }
 
   .md\:leading-9 {
@@ -2923,10 +2851,6 @@ html {
 
   .xl\:h-72 {
     height: 18rem;
-  }
-
-  .xl\:h-60 {
-    height: 15rem;
   }
 
   .xl\:w-1\/5 {
