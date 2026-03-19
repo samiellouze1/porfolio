@@ -2089,6 +2089,11 @@ html {
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
+.text-green {
+  --tw-text-opacity: 1;
+  color: rgb(59 163 24 / var(--tw-text-opacity, 1));
+}
+
 .text-grey-10 {
   --tw-text-opacity: 1;
   color: rgb(108 107 109 / var(--tw-text-opacity, 1));

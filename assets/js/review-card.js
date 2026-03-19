@@ -9,6 +9,7 @@ class ReviewCard extends HTMLElement {
     const href            = this.getAttribute('href')              || '#';
     const projectTitle    = this.getAttribute('project-title')     || 'Project';
     const projectDesc     = this.getAttribute('project-desc')      || '';
+    const safePlatformAttr = platform.replace(/"/g, '&quot;');
 
     // Parse up to 4 images; fall back to single `image` attribute
     const images = imagesAttr
@@ -116,7 +117,6 @@ class ReviewCard extends HTMLElement {
       <div class="shadow flex flex-col h-full">
 
         <!-- Slideshow -->
-        <a href="${href}">
           <div class="rc-slideshow group relative h-60 sm:h-84 lg:h-64 xl:h-60 flex-shrink-0">
             ${images.map((src, i) => `
               <div
@@ -127,16 +127,16 @@ class ReviewCard extends HTMLElement {
             <span
               class="absolute inset-0 block bg-gradient-to-b from-blog-gradient-from to-blog-gradient-to opacity-10 transition-opacity group-hover:opacity-50 z-[1]"
             ></span>
+            <a href="${href}" target="_blank">
+
             <span
-              class="absolute bottom-0 right-0 mb-4 mr-4 block rounded-full border-2 px-4 py-2 text-center text-grey-20 border-grey-20 font-body text-sm font-bold uppercase 
-              group-hover:text-white group-hover:border-white
-              transition-all duration-300 z-[2]"
-            >
-            ${platform}
-            </span>
+              class="rc-platform-badge absolute bottom-0 right-0 mb-4 mr-4 hidden rounded-full border-2 border-white px-4 py-2 text-center font-body text-sm font-bold uppercase text-white transition-all duration-300 z-[2]"
+              data-platform="${safePlatformAttr}"
+              aria-hidden="true"
+            ></span>
+            </a>
             ${dotsHTML}
           </div>
-        </a>
 
         <!-- Content area -->
         <div class="bg-white flex-1 flex flex-col">
@@ -176,6 +176,29 @@ class ReviewCard extends HTMLElement {
     // ── Slideshow logic ──────────────────────────────────────────
     const slides = [...this.querySelectorAll('.rc-slide')];
     const dots   = [...this.querySelectorAll('.rc-dot')];
+    const slideshowEl = this.querySelector('.rc-slideshow');
+    const platformBadge = this.querySelector('.rc-platform-badge');
+
+    const showPlatformBadge = () => {
+      if (!platformBadge) return;
+      platformBadge.textContent = platformBadge.dataset.platform || '';
+      platformBadge.classList.remove('hidden');
+      platformBadge.setAttribute('aria-hidden', 'false');
+    };
+
+    const hidePlatformBadge = () => {
+      if (!platformBadge) return;
+      platformBadge.textContent = '';
+      platformBadge.classList.add('hidden');
+      platformBadge.setAttribute('aria-hidden', 'true');
+    };
+
+    if (slideshowEl && platformBadge) {
+      slideshowEl.addEventListener('pointerenter', showPlatformBadge);
+      slideshowEl.addEventListener('pointerleave', hidePlatformBadge);
+      slideshowEl.addEventListener('focusin', showPlatformBadge);
+      slideshowEl.addEventListener('focusout', hidePlatformBadge);
+    }
 
     if (slides.length > 1) {
       let current = 0;
