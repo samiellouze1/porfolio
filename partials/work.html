@@ -1,0 +1,225 @@
+        <!-- Work Section -->
+        <div id="work"
+          class="snap-section min-h-screen bg-white py-16 md:py-20"
+          @wheel="onWorkScroll($event)"
+        >
+          <div class="container">
+            <h2
+              class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+            >
+              My internships
+            </h2>
+            <h3
+              class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
+            >
+              Here's what I did up to my graduation
+            </h3>
+
+            <div class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3">
+              <span
+                class="absolute inset-y-0 left-2/5 ml-10 hidden w-0.5 bg-grey-40 md:block"
+              ></span>
+              <!-- ZNET IT -->
+              <div
+                class="mt-8 flex flex-col text-center md:flex-row md:text-left"
+              >
+                <div class="md:w-2/5">
+                  <div class="flex justify-center md:justify-start">
+                    <span class="shrink-0">
+                      <a
+                        href="https://znet.tn/"
+                        class="inline-block transition-transform duration-200 ease-out hover:scale-110"
+                        target="_blank"
+                      >
+                        <img
+                          src="/assets/img/znet-it-logo.png"
+                          class="h-auto w-32"
+                          alt="company logo"
+                        />
+                      </a>
+                    </span>
+                    <div class="relative ml-3 hidden w-full md:block">
+                      <span
+                        class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-3/5">
+                  <div class="relative flex md:pl-18">
+                    <span
+                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 transition-all duration-200 ease-out md:block"
+                      :class="currentJob === 0 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
+                      @click="currentJob = 0"
+                    ></span>
+
+                    <div class="mt-1 flex">
+                      <i
+                        class="bx bxs-right-arrow hidden text-primary md:block"
+                      ></i>
+                      <div class="md:-mt-1 md:pl-8">
+                        <span class="block font-body font-bold text-grey-40 cursor-pointer"
+                        @click="currentJob = 0"
+                          >Aug 2022 - Sep 2022</span
+                        >
+                        <span
+                          class="block pt-2 font-header text-xl font-bold uppercase text-primary cursor-pointer"
+                          @click="currentJob = 0"
+                          >Full Stack Developer</span
+                        >
+                        <div
+                          class="duration-400 pt-2 transition-opacity ease-out"
+                          x-show="currentJob === 0"
+                          x-transition.opacity.duration.400ms
+                        >
+                          <span class="block font-body text-black"
+                            >I was asked to create a poker planning platform aimed at aiding scrum masters specify 2 common metrics about a given user story: priority and story points. The implementation was done using <b>C#/ASP.NET Core MVC, Razor, HTML, CSS and JavaScript</b> technologies. This was exactly when I was introduced into Web Development. This has enabled me to learn fundamental Software Engineering concepts and to get my first hands-on experience.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ODDO BHF -->
+              <div
+                class="mt-8 flex flex-col text-center md:flex-row md:text-left"
+              >
+                <div class="md:w-2/5">
+                  <div class="flex justify-center md:justify-start">
+                    <span class="shrink-0">
+                      <a
+                        href="https://www.oddobhf.com/"
+                        target="_blank"
+                        class="inline-block transition-transform duration-200 ease-out hover:scale-110"
+                      >
+                        <img
+                          src="/assets/img/oddo-bhf-logo.png"
+                          class="h-auto w-32"
+                          alt="ODDO BHF"
+                        />
+                      </a>
+                    </span>
+                    <div class="relative ml-3 hidden w-full md:block">
+                      <span
+                        class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-3/5">
+                  <div class="relative flex md:pl-18">
+                    <span
+                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 transition-all duration-200 ease-out md:block"
+                      :class="currentJob === 1 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
+                      @click="currentJob = 1"
+                    ></span>
+
+                    <div class="mt-1 flex">
+                      <i
+                        class="bx bxs-right-arrow hidden text-primary md:block"
+                      ></i>
+                      <div class="md:-mt-1 md:pl-8">
+                        <span class="block font-body font-bold text-grey-40 cursor-pointer"
+                        @click="currentJob = 1"
+                          >Jul 2023 - Sep 2023</span
+                        >
+                        <span
+                          class="block pt-2 font-header text-xl font-bold uppercase text-primary cursor-pointer"
+                          @click="currentJob = 1"
+                          >Backend Developer</span
+                        >
+                        <div
+                          class="duration-400 pt-2 transition-opacity ease-out"
+                          x-show="currentJob === 1"
+                          x-transition.opacity.duration.400ms
+                        >
+                          <span class="block font-body text-black"
+                            >Engineered from the ground up Project Lutèce (Micro‑Serviced Asset Management Backend App): Put in place 4 domain‑specific microservices in <b>ASP.NET Core Web API/C#</b>
+                            featuring a secure <b>JWT</b> authentication with <b>RBAC</b>, inter‑service communication via <b>HTTP, gRPC, and RabbitMQ</b>. 
+                            </br>
+                            Containerized the deployment with <b>Docker and Kubernetes</b> for scaling and resilience. This experience deepened my knowledge in ASP.NET and Software Engineering in general. Moreover, it was the perfect opportunity to apply my know-how in Capital Markets.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- TAGV -->
+              <div
+                class="mt-8 flex flex-col text-center md:flex-row md:text-left"
+              >
+                <div class="md:w-2/5">
+                  <div class="flex justify-center md:justify-start">
+                    <span class="shrink-0">
+                      <a
+                        href="https://www.linkedin.com/company/tagamuta%C2%B2valley/"
+                        class="inline-block transition-transform duration-200 ease-out hover:scale-110"
+                        target="_blank"
+                      >
+                        <img
+                          src="/assets/img/tagv-logo.png"
+                          class="h-auto w-32"
+                          alt="TAGV"
+                        />
+                      </a>
+                    </span>
+                    <div class="relative ml-3 hidden w-full md:block">
+                      <span
+                        class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:w-3/5">
+                  <div class="relative flex md:pl-18">
+                    <span
+                      class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 transition-all duration-200 ease-out md:block"
+                      :class="currentJob === 2 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
+                      @click="currentJob = 2"
+                    ></span>
+
+                    <div class="mt-1 flex">
+                      <i
+                        class="bx bxs-right-arrow hidden text-primary md:block"
+                      ></i>
+                      <div class="md:-mt-1 md:pl-8">
+                        <span class="block font-body font-bold text-grey-40 cursor-pointer"
+                        @click="currentJob = 2"
+                          >Mar 2024 - Aug 2024</span
+                        >
+                        <span
+                          class="block pt-2 font-header text-xl font-bold uppercase text-primary cursor-pointer"
+                          @click="currentJob = 2"
+                          >Full Stack Developer</span
+                        >
+                        <div
+                          class="duration-400 pt-2 transition-opacity ease-out"
+                          x-show="currentJob === 2"
+                          x-transition.opacity.duration.400ms
+                        >
+                          <span class="block font-body text-black"
+                            >Designed and developed Appointment Scheduling, Medical Record Management, and Record Sharing modules using <b>Java, Spring Boot,
+                              Angular, and TypeScript.</b>
+                            </br>
+                            Integrated <b>Keycloak</b> for identity management, enabling <b>OAuth 2.0</b> flows and role‑based access control (RBAC).
+                            </br>
+                            Increased code reliability with 80%+ backend test coverage using <b>JUnit and Mockito</b>.
+                            </br>
+                            Built a CI/CD pipeline <b>(GitLab CI)</b> for automated testing, building, and deployment.
+                            </br>
+                            Successfully delivered 29 user stories during the internship.
+                            </br>
+                            A pivotal experience in my small career, as this was when I switched to the <b>Java</b> ecosystem. A lot of the knowledge I had gathered from <b>.NET</b> development was transferable but a lot of newer concepts were learned in <b>Java</b> and <b>POO</b> in general. Under amazing tutelage, I have combined a handful of technologies into a project that is of value in Healthtech.
+                          </span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

@@ -22,3 +22,6 @@ rad.json
 TestResults.xml
 node_modules
 devassets
+
+# Generated from partials/ (see npm run build:html)
+/index.html

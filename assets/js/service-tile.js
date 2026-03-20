@@ -16,10 +16,10 @@ class ServiceTile extends HTMLElement {
       .replace(/'/g, '&#39;');
 
     this.innerHTML = `
-    <a href="${href}">
-      <div class="group w-1/2 mx-auto rounded px-6 py-1 shadow hover:bg-primary sm:w-1/2">
+    <a href="${href}" class="block w-1/2 max-w-md mx-auto">
+      <div class="group w-full justify-center rounded px-6 py-1 shadow hover:bg-primary">
           <div class="text-center">
-            <h3 class="px-2 py-2 font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl">
+            <h3 class="px-2 py-2 font-semibold uppercase text-primary group-hover:text-white lg:text-xl">
               ${title}
             </h3>
           </div>

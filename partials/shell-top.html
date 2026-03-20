@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+
+    <meta
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      name="viewport"
+    />
+
+    <title>Sami Ellouze Portfolio</title>
+
+    <meta property="og:title" content="Homepage | Atom Template" />
+
+    <meta property="og:locale" content="en_US" />
+
+    <link rel="canonical" href="//" />
+
+    <meta property="og:url" content="//" />
+
+    <meta
+      name="description"
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+    <meta name="theme-color" content="#5540af" />
+
+    <meta property="og:site_name" content="Atom Template" />
+
+    <meta property="og:image" content="//assets/img/social.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:site" content="@tailwindmade" />
+
+    <link
+      crossorigin="crossorigin"
+      href="https://fonts.gstatic.com"
+      rel="preconnect"
+    />
+
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+      rel="preload"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      crossorigin="anonymous"
+      href="/assets/styles/main.min.css"
+      media="screen"
+      rel="stylesheet"
+    />
+
+    <script
+      defer
+      src="https://unpkg.com/@alpine-collective/toolkit@1.0.0/dist/cdn.min.js"
+    ></script>
+
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <style>
+      html {
+        scroll-snap-type: y mandatory;
+      }
+      .snap-section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+      }
+      .text-indent-paragraph {
+        text-indent: 2em;
+      }
+    </style>
+  </head>
+
+  <body
+    :class="{ 'overflow-hidden max-h-screen': mobileMenu }"
+    class="relative"
+    x-data="{ mobileMenu: false }"
+  >
+    <div id="main" class="relative">
+      <div
+        x-data="{
+          lastScrollTime: 0,
+          currentSection: 0,
+          navInAbout: false,
+          currentJob: 0,
+          init() {
+            const update = () => {
+              const y = window.scrollY;
+              const h = window.innerHeight;
+              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : y < h * 2.5 ? 2 : y < h * 3.5 ? 3 : 4;
+              this.navInAbout = this.currentSection >= 1;
+            };
+            window.addEventListener('scroll', update);
+            update();
+          },
+          triggerNavItem(id) {
+              $scroll(id)
+          },
+          triggerMobileNavItem(id) {
+              mobileMenu = false;
+              this.triggerNavItem(id)
+          },
+          onWorkScroll(event) {
+            const delta = event.deltaX || 0;
+            if (Math.abs(delta) < 10) return; // ignore tiny nudges
+            
+            const now = Date.now();
+            if (now - this.lastScrollTime < 400) return;
+
+            if (delta > 0 && this.currentJob < 2) {
+              this.currentJob++;
+              event.preventDefault();
+              this.lastScrollTime = now;
+            } else if (delta < 0 && this.currentJob > 0) {
+              this.currentJob--;
+              event.preventDefault();
+              this.lastScrollTime = now;
+            }
+          },
+      }"
+      >
+        <div class="absolute top-0 z-50 w-full py-3 sm:py-5">
+          <div class="container flex items-center justify-between">
+            <!-- <div>
+              <a href="/">
+                <img
+                  src="/assets/img/logo.svg"
+                  class="w-24 lg:w-60"
+                  alt="logo image"
+                />
+              </a>
+            </div> -->
+            <div class="ml-auto hidden lg:block">
+              <ul class="flex items-center">
+                <li class="group pl-6">
+                  <a
+                    href="oldindex.html" 
+                    target="_blank"
+                    class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white no-underline hover:text-white"
+                    >Download Resume</a
+                  >
+                  <span
+                    class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+                  ></span>
+                </li>
+              </ul>
+            </div>
+            <div class="block lg:hidden">
+              <button @click="mobileMenu = true">
+                <i class="bx bx-menu text-4xl text-white"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden"
+          :class="{ 'opacity-100 pointer-events-auto': mobileMenu }"
+        >
+          <div
+            class="absolute right-0 min-h-screen w-2/3 bg-primary px-8 py-4 shadow md:w-1/3"
+          >
+            <button
+              class="absolute right-0 top-0 mr-4 mt-4"
+              @click="mobileMenu = false"
+            >
+              <img
+                src="/assets/img/icon-close.svg"
+                class="h-10 w-auto"
+                alt=""
+              />
+            </button>
+
+            <ul class="mt-8 flex flex-col">
+              <li class="py-2">
+                <span
+                  @click="triggerMobileNavItem('#about')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >About</span
+                >
+              </li>
+              <li class="py-2">
+                <span
+                  @click="triggerMobileNavItem('#work')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >Work</span
+                >
+              </li>
+              <li class="py-2">
+                <span
+                  @click="triggerMobileNavItem('#blog')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >Work</span
+                >
+              </li>
+              <li class="py-2">
+                <span
+                  @click="triggerMobileNavItem('#portfolio')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >Work</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Page indicator dots: hero = white; about/work = primary -->
+        <div
+          class="fixed right-6 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-4"
+          aria-label="Page navigation"
+        >
+          <button
+            type="button"
+            @click="triggerNavItem('#hero')"
+            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+            :class="currentSection === 0
+              ? 'h-3.5 w-3.5 scale-125 border-2 border-white bg-white focus:ring-white'
+              : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+            aria-label="Go to main"
+          ></button>
+          <button
+            type="button"
+            @click="triggerNavItem('#about')"
+            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+            :class="currentSection === 1
+              ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+              : currentSection === 0
+                ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+            aria-label="Go to about"
+          ></button>
+          <button
+            type="button"
+            @click="triggerNavItem('#work')"
+            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+            :class="currentSection === 2
+                ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+                : currentSection === 0
+                  ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                  : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+            aria-label="Go to work"
+          ></button>
+          <button
+            type="button"
+            @click="triggerNavItem('#blog')"
+            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+            :class="currentSection === 3
+                ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+                : currentSection === 0
+                  ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                  : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+            aria-label="Go to blog"
+          ></button>
+          <button
+          type="button"
+          @click="triggerNavItem('#blog')"
+          class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+          :class="currentSection === 4
+              ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+              : currentSection === 0
+                ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+          aria-label="Go to portfolio"
+        ></button>
+        </div>

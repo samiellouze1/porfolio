@@ -7,6 +7,7 @@ module.exports = {
     fontFamily: {
       header: ["Raleway", "sans-serif"],
       body: ["Open Sans", "sans-serif"],
+      mono: ["Press Start 2P", "monospace"], // retro game/computer feel
     },
 
     screens: {
@@ -51,6 +52,15 @@ module.exports = {
     },
 
     extend: {
+      keyframes: {
+        flash: {
+          "0%, 50%, 100%": { opacity: "1" },
+          "25%, 75%": { opacity: "0.3" },
+        },
+      },
+      animation: {
+        flash: "flash 1.5s ease-in-out infinite",
+      },
       spacing: {
         13: "3.25rem",
         15: "3.75rem",

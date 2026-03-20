@@ -6,8 +6,9 @@
   "scripts": {
     "css": "postcss assets/styles/main.css -o assets/styles/main.min.css --verbose",
     "server-reload": "browser-sync start --config './browser-sync-config.js'",
-    "develop": "concurrently 'npm:css -- --watch' 'npm:server-reload'",
-    "build": "npm run css -- --env 'production'",
+    "develop": "npm run build:html && concurrently 'npm:css -- --watch' 'node scripts/watch-partials.js' 'npm:server-reload'",
+    "build": "npm run build:html && npm run css -- --env 'production'",
+    "build:html": "node scripts/build-index.js",
     "format": "npx prettier ./**/*.html"
   },
   "browserslist": [

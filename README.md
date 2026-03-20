@@ -19,8 +19,16 @@ npm i
 3. Run the development server:
 
 ```bash
-npm serve .
+npm run develop
 ```
+
+### Editing the homepage
+
+The main page is built from **partials** in `partials/`. Root **`index.html` is generated** (not committed); run **`npm run develop`** and it will be created and kept up to date when you edit partials.
+
+- **`npm run develop`** — builds HTML once, watches partials + CSS, runs Browser-sync.
+- **`npm run build:html`** — one-off HTML build (e.g. CI or preview without the dev server).
+- **`npm run build`** — `build:html` + production CSS (use before static deploy if you deploy from disk).
 
 ## Author 
 ```

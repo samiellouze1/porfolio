@@ -49,28 +49,40 @@ class ReviewCard extends HTMLElement {
         review-card .rc-panels-wrapper {
           position: relative;
           overflow: hidden;
-          height: 400px; /* default content height on wide screens */
+          box-sizing: border-box;
+          height: 400px;
+          min-height: 400px;
+          max-height: 400px;
+          flex-shrink: 0;
         }
+        /* ~half a typical desktop width (e.g. snapped 50/50 on 1920–2560px) */
         @media (max-width: 1024px) {
           review-card .rc-panels-wrapper {
-            height: 200px; /* slightly shorter on half-width or smaller screens */
+            height: 200px;
+            min-height: 200px;
+            max-height: 200px;
           }
         }
         review-card .rc-panel {
+          box-sizing: border-box;
+          position: absolute;
+          inset: 0;
           width: 100%;
           height: 100%;
           visibility: hidden;
           opacity: 0;
-          position: absolute;
-          top: 0;
-          left: 0;
+          pointer-events: none;
+          z-index: 0;
           transition: opacity 0.15s ease;
-          overflow-y: auto; /* scroll inside panel when content is long */
+          overflow-y: auto;
+          overflow-x: hidden;
+          -webkit-overflow-scrolling: touch;
         }
         review-card .rc-panel.active {
           visibility: visible;
           opacity: 1;
-          position: relative;
+          pointer-events: auto;
+          z-index: 1;
         }
 
         /* Slideshow */
