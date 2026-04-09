@@ -17,6 +17,7 @@ const files = [
   'fis.html',
   'work.html',
   'blog.html',
+  'learning.html',
   'portfolio.html',
   'contact.html',
   'shell-bottom.html',

@@ -112,7 +112,7 @@
                     <span
                       class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 transition-all duration-200 ease-out md:block"
                       :class="currentJob === 1 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
-                      @click="currentJob = 1"
+                      @click="selectWorkExperience(1)"
                     ></span>
 
                     <div class="mt-1 flex">
@@ -121,12 +121,12 @@
                       ></i>
                       <div class="md:-mt-1 md:pl-8">
                         <span class="block font-body font-bold text-grey-40 cursor-pointer"
-                        @click="currentJob = 1"
+                        @click="selectWorkExperience(1)"
                           >Jul 2023 - Sep 2023</span
                         >
                         <span
                           class="block pt-2 font-header text-xl font-bold uppercase text-primary cursor-pointer"
-                          @click="currentJob = 1"
+                          @click="selectWorkExperience(1)"
                           >Backend Developer</span
                         >
                         <div
@@ -138,7 +138,7 @@
                             >Engineered from the ground up Project Lutèce (Micro‑Serviced Asset Management Backend App): Put in place 4 domain‑specific microservices in <b>ASP.NET Core Web API/C#</b>
                             featuring a secure <b>JWT</b> authentication with <b>RBAC</b>, inter‑service communication via <b>HTTP, gRPC, and RabbitMQ</b>. 
                             </br>
-                            Containerized the deployment with <b>Docker and Kubernetes</b> for scaling and resilience. This experience deepened my knowledge in ASP.NET and Software Engineering in general. Moreover, it was the perfect opportunity to apply my know-how in Capital Markets.</span
+                            Containerized the deployment with <b>Docker and Kubernetes</b> for scaling and resilience. This experience deepened my knowledge in ASP.NET and Software Engineering in general. Moreover, it was the perfect opportunity to apply my know-how in Capital Markets. I also improved my collaboration and delivery discipline by working closely with cross-functional stakeholders and shipping features in short, iterative cycles.</span
                           >
                         </div>
                       </div>
@@ -177,7 +177,7 @@
                     <span
                       class="absolute left-8 top-1 hidden h-4 w-4 cursor-pointer rounded-full border-2 transition-all duration-200 ease-out md:block"
                       :class="currentJob === 2 ? 'border-primary bg-primary' : 'border-grey-40 bg-white'"
-                      @click="currentJob = 2"
+                      @click="selectWorkExperience(2)"
                     ></span>
 
                     <div class="mt-1 flex">
@@ -186,12 +186,12 @@
                       ></i>
                       <div class="md:-mt-1 md:pl-8">
                         <span class="block font-body font-bold text-grey-40 cursor-pointer"
-                        @click="currentJob = 2"
+                        @click="selectWorkExperience(2)"
                           >Mar 2024 - Aug 2024</span
                         >
                         <span
                           class="block pt-2 font-header text-xl font-bold uppercase text-primary cursor-pointer"
-                          @click="currentJob = 2"
+                          @click="selectWorkExperience(2)"
                           >Full Stack Developer</span
                         >
                         <div
