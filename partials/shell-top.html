@@ -107,6 +107,9 @@
           portfolioAnimationPlayed: false,
           portfolioRow1Visible: false,
           portfolioRow2Visible: false,
+          learningAnimationPlayed: false,
+          learningRow1Visible: false,
+          learningRow2Visible: false,
           init() {
             const update = () => {
               const y = window.scrollY;
@@ -118,21 +121,38 @@
             update();
 
             const portfolioSection = document.querySelector('#portfolio');
-            if (!portfolioSection) return;
+            if (portfolioSection) {
+              const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting && !this.portfolioAnimationPlayed) {
+                    this.portfolioAnimationPlayed = true;
+                    this.portfolioRow1Visible = true;
+                    setTimeout(() => {
+                      this.portfolioRow2Visible = true;
+                    }, 350);
+                  }
+                });
+              }, { threshold: 0.35 });
 
-            const observer = new IntersectionObserver((entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting && !this.portfolioAnimationPlayed) {
-                  this.portfolioAnimationPlayed = true;
-                  this.portfolioRow1Visible = true;
-                  setTimeout(() => {
-                    this.portfolioRow2Visible = true;
-                  }, 350);
-                }
-              });
-            }, { threshold: 0.35 });
+              observer.observe(portfolioSection);
+            }
 
-            observer.observe(portfolioSection);
+            const learningSection = document.querySelector('#learning');
+            if (learningSection) {
+              const learningObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting && !this.learningAnimationPlayed) {
+                    this.learningAnimationPlayed = true;
+                    this.learningRow1Visible = true;
+                    setTimeout(() => {
+                      this.learningRow2Visible = true;
+                    }, 350);
+                  }
+                });
+              }, { threshold: 0.35 });
+
+              learningObserver.observe(learningSection);
+            }
           },
           triggerNavItem(id) {
               $scroll(id)

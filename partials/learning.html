@@ -1,5 +1,5 @@
         <!-- Learning on the side Section -->
-        <div id="learning" class="snap-section min-h-screen bg-white py-16 md:py-20">
+        <div id="learning" class="snap-section min-h-screen bg-white py-10 md:py-10">
           <div class="container">
             <h2
               class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
@@ -11,5 +11,47 @@
             >
               Courses, certifications, and skills beyond the day job
             </h3>
+
+            <div class="mx-auto mt-10 grid w-full max-w-5xl gap-6">
+              <!-- Row 1: certification image left, text right -->
+              <div
+                class="grid items-center gap-4 transition-all duration-700 ease-out md:grid-cols-[180px_minmax(0,1fr)] md:gap-5"
+                :class="learningRow1Visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'"
+              >
+                <div class="mx-auto w-full max-w-[180px] bg-transparent md:mx-0">
+                  <img
+                    src="/assets/img/dvac02.webp"
+                    class="h-auto w-full bg-transparent object-contain"
+                    alt="AWS Certified Developer Associate DVA-C02"
+                  />
+                </div>
+                <hover-text extra-classes="text-base md:text-lg">
+                  I earned the <b>AWS Certified Developer – Associate (DVA-C02)</b> certification to validate hands-on skills in building and operating secure, scalable applications on AWS. The exam covered core services such as compute, storage, networking, and identity, alongside deployment patterns and operational best practices. This credential reflects my commitment to cloud-native development and complements my backend engineering work with practical AWS fluency you can rely on in production environments.
+                </hover-text>
+              </div>
+
+              <!-- Row 2: text left, GitHub card right (symmetric to portfolio row 2) -->
+              <div
+                class="grid items-center gap-4 transition-all duration-700 ease-out md:grid-cols-[minmax(0,1fr)_180px] md:gap-5"
+                :class="learningRow2Visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'"
+              >
+                <hover-text extra-classes="order-2 text-base md:order-1 md:text-lg">
+                  As a hands-on follow-up to my AWS learning, I built a small <b>library management</b> style project that applied what I studied: IAM-aware access patterns, container-friendly deployment assumptions, and observable APIs. It was a practical sandbox to connect certification concepts to real code structure, error handling, and iterative delivery—similar to how I approach features at work, but scoped for experimentation and learning.
+                </hover-text>
+                <div class="order-1 mx-auto w-full max-w-[180px] md:order-2 md:mr-0">
+                  <a
+                    href="https://github.com/samiellouze1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex w-full flex-row items-center justify-center gap-2 rounded-xl border border-grey-70 bg-black px-4 py-4 transition-transform duration-200 hover:scale-[1.02] hover:bg-neutral-900"
+                  >
+                    <i class="bx bxl-github shrink-0 text-2xl text-white"></i>
+                    <span class="whitespace-nowrap font-body text-sm font-semibold uppercase tracking-wide text-white">
+                      View on GitHub
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>

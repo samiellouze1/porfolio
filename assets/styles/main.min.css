@@ -1421,6 +1421,10 @@ html {
   margin-top: 2rem;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
 .block {
   display: block;
 }
@@ -1589,6 +1593,14 @@ html {
   max-width: 36rem;
 }
 
+.max-w-\[120px\] {
+  max-width: 120px;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
 .shrink-0 {
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -1667,6 +1679,13 @@ html {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.flex-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 .flex-col {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -1725,6 +1744,10 @@ html {
   gap: 2rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -1743,6 +1766,10 @@ html {
 
 .scroll-smooth {
   scroll-behavior: smooth;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded {
@@ -2145,6 +2172,11 @@ html {
   line-height: 1.75rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2298,6 +2330,13 @@ html {
           box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-\[0_12px_28px_rgba\(0\2c 0\2c 0\2c 0\.12\)\] {
+  --tw-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  --tw-shadow-colored: 0 12px 28px var(--tw-shadow-color);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+          box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .outline {
   outline-style: solid;
 }
@@ -2382,6 +2421,10 @@ html {
           transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+.\[image-rendering\:auto\] {
+  image-rendering: auto;
+}
+
 .hover\:scale-105:hover {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
@@ -2394,6 +2437,17 @@ html {
   --tw-scale-y: 1.1;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:scale-\[1\.02\]:hover {
+  --tw-scale-x: 1.02;
+  --tw-scale-y: 1.02;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:border-primary\/40:hover {
+  border-color: rgb(7 108 185 / 0.4);
 }
 
 .hover\:bg-grey-20:hover {
@@ -2700,6 +2754,12 @@ html {
     display: block;
   }
 
+  .md\:inline-flex {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+
   .md\:h-20 {
     height: 5rem;
   }
@@ -2736,12 +2796,20 @@ html {
     width: 83.333333%;
   }
 
+  .md\:w-auto {
+    width: auto;
+  }
+
   .md\:max-w-4xl {
     max-width: 56rem;
   }
 
   .md\:max-w-\[240px\] {
     max-width: 240px;
+  }
+
+  .md\:max-w-none {
+    max-width: none;
   }
 
   .md\:grid-cols-2 {
@@ -2758,6 +2826,14 @@ html {
 
   .md\:grid-cols-\[minmax\(0\2c 1fr\)_180px\] {
     grid-template-columns: minmax(0,1fr) 180px;
+  }
+
+  .md\:grid-cols-\[120px_minmax\(0\2c 1fr\)\] {
+    grid-template-columns: 120px minmax(0,1fr);
+  }
+
+  .md\:grid-cols-\[minmax\(0\2c 1fr\)_auto\] {
+    grid-template-columns: minmax(0,1fr) auto;
   }
 
   .md\:flex-row {
@@ -2791,6 +2867,10 @@ html {
     gap: 2rem;
   }
 
+  .md\:justify-self-end {
+    justify-self: end;
+  }
+
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2814,6 +2894,11 @@ html {
   .md\:py-20 {
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+
+  .md\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .md\:pl-1 {
