@@ -101,15 +101,13 @@
           currentSection: 0,
           navInAbout: false,
           currentJob: 0,
-          workScrollTimer: null,
-          workScrollStep: 80,
-          workScrollDelayMs: 420,
           portfolioAnimationPlayed: false,
           portfolioRow1Visible: false,
           portfolioRow2Visible: false,
           learningAnimationPlayed: false,
           learningRow1Visible: false,
           learningRow2Visible: false,
+          learningRow3Visible: false,
           init() {
             const update = () => {
               const y = window.scrollY;
@@ -147,6 +145,9 @@
                     setTimeout(() => {
                       this.learningRow2Visible = true;
                     }, 350);
+                    setTimeout(() => {
+                      this.learningRow3Visible = true;
+                    }, 700);
                   }
                 });
               }, { threshold: 0.35 });
@@ -161,23 +162,8 @@
               mobileMenu = false;
               this.triggerNavItem(id)
           },
-          scheduleLastExperienceScroll() {
-            if (this.workScrollTimer) {
-              clearTimeout(this.workScrollTimer);
-              this.workScrollTimer = null;
-            }
-            // Wait until the experience transition starts, then perform one small scroll.
-            this.workScrollTimer = setTimeout(() => {
-              window.scrollBy({ top: this.workScrollStep, behavior: 'smooth' });
-              this.workScrollTimer = null;
-            }, this.workScrollDelayMs);
-          },
           selectWorkExperience(index) {
-            const previous = this.currentJob;
             this.currentJob = index;
-            if (index === 2 && previous !== 2) {
-              this.scheduleLastExperienceScroll();
-            }
           },
           onWorkScroll(event) {
             const delta = event.deltaX || 0;

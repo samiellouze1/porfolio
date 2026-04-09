@@ -1,15 +1,19 @@
 # HTML partials
 
-The homepage is assembled from these files:
+The homepage is assembled from these files (names follow each section’s main heading):
 
-| File | Contents |
-|------|----------|
+| File | Section heading / role |
+|------|-------------------------|
 | `shell-top.html` | `<!DOCTYPE>` through nav / mobile menu (before first section) |
-| `hero.html` | Hero section (`#hero`) |
-| `about.html` | About section |
-| `work.html` | Work section |
-| `blog.html` | Blog section |
-| `portfolio.html` | Portfolio section |
+| `hero.html` | Hero (`#hero`) |
+| `who-am-i.html` | Who am I? (`#about`) |
+| `education.html` | Education (`#educ`) |
+| `work-experience.html` | Work Experience — FIS (`#fis`) |
+| `my-internships.html` | My internships (`#work`) |
+| `freelancing-experiences.html` | I also had a few freelancing experiences (`#blog`) |
+| `learning-on-the-side.html` | Learning on the side (`#learning`) |
+| `associative-life-and-hobbies.html` | Associative Life And Hobbies (`#portfolio`) |
+| `contact-me.html` | Contact Me (`#contactme`) |
 | `shell-bottom.html` | Closing layout + script tags |
 
 **Workflow:** Edit the partial you need. During **`npm run develop`**, `index.html` is built first, then rebuilt automatically when you save any `partials/*.html`.

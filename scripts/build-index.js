@@ -1,6 +1,6 @@
 /**
  * Assembles index.html from partials in /partials.
- * Edit section files (hero.html, about.html, …) then run:
+ * Edit section files then run:
  *   npm run build:html
  */
 const fs = require('fs');
@@ -12,14 +12,14 @@ const partialsDir = path.join(root, 'partials');
 const files = [
   'shell-top.html',
   'hero.html',
-  'about.html',
+  'who-am-i.html',
   'education.html',
-  'fis.html',
-  'work.html',
-  'blog.html',
-  'learning.html',
-  'portfolio.html',
-  'contact.html',
+  'work-experience.html',
+  'my-internships.html',
+  'freelancing-experiences.html',
+  'learning-on-the-side.html',
+  'associative-life-and-hobbies.html',
+  'contact-me.html',
   'shell-bottom.html',
 ];
 
