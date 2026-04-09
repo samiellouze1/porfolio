@@ -14,9 +14,11 @@ const files = [
   'hero.html',
   'about.html',
   'education.html',
+  'fis.html',
   'work.html',
   'blog.html',
   'portfolio.html',
+  'contact.html',
   'shell-bottom.html',
 ];
 

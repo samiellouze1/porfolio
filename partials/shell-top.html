@@ -108,7 +108,7 @@
             const update = () => {
               const y = window.scrollY;
               const h = window.innerHeight;
-              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : y < h * 2.5 ? 2 : y < h * 3.5 ? 3 : y < h * 4.5 ? 4 : 5;
+              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : y < h * 2.5 ? 2 : y < h * 3.5 ? 3 : y < h * 4.5 ? 4 : y < h * 5.5 ? 5 : y < h * 6.5 ? 6 : 7;
               this.navInAbout = this.currentSection >= 1;
             };
             window.addEventListener('scroll', update);
@@ -226,6 +226,13 @@
               </li>
               <li class="py-2">
                 <span
+                  @click="triggerMobileNavItem('#fis')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >FIS Experience</span
+                >
+              </li>
+              <li class="py-2">
+                <span
                   @click="triggerMobileNavItem('#work')"
                   class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
                   >Internships</span
@@ -243,6 +250,13 @@
                   @click="triggerMobileNavItem('#portfolio')"
                   class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
                   >Hobbies</span
+                >
+              </li>
+              <li class="py-2">
+                <span
+                  @click="triggerMobileNavItem('#contactme')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >Contact me</span
                 >
               </li>
             </ul>
@@ -287,20 +301,31 @@
           ></button>
           <button
             type="button"
-            @click="triggerNavItem('#work')"
+            @click="triggerNavItem('#fis')"
             class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
             :class="currentSection === 3
                 ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
                 : currentSection === 0
                   ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
                   : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
-            aria-label="Go to work"
+            aria-label="Go to fis experience"
           ></button>
+          <button
+          type="button"
+          @click="triggerNavItem('#work')"
+          class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+          :class="currentSection === 4
+              ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+              : currentSection === 0
+                ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+          aria-label="Go to work"
+        ></button>
           <button
           type="button"
           @click="triggerNavItem('#blog')"
           class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-          :class="currentSection === 4
+          :class="currentSection === 5
               ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
               : currentSection === 0
                 ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
@@ -311,11 +336,22 @@
           type="button"
           @click="triggerNavItem('#portfolio')"
           class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-          :class="currentSection === 5
+          :class="currentSection === 6
               ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
               : currentSection === 0
                 ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
                 : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
           aria-label="Go to portfolio"
+        ></button>
+          <button
+          type="button"
+          @click="triggerNavItem('#contactme')"
+          class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+          :class="currentSection === 7
+              ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+              : currentSection === 0
+                ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+          aria-label="Go to contact"
         ></button>
         </div>
