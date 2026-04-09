@@ -108,7 +108,7 @@
             const update = () => {
               const y = window.scrollY;
               const h = window.innerHeight;
-              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : y < h * 2.5 ? 2 : y < h * 3.5 ? 3 : 4;
+              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : y < h * 2.5 ? 2 : y < h * 3.5 ? 3 : y < h * 4.5 ? 4 : 5;
               this.navInAbout = this.currentSection >= 1;
             };
             window.addEventListener('scroll', update);
@@ -219,23 +219,30 @@
               </li>
               <li class="py-2">
                 <span
+                  @click="triggerMobileNavItem('#educ')"
+                  class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+                  >Education</span
+                >
+              </li>
+              <li class="py-2">
+                <span
                   @click="triggerMobileNavItem('#work')"
                   class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
-                  >Work</span
+                  >Internships</span
                 >
               </li>
               <li class="py-2">
                 <span
                   @click="triggerMobileNavItem('#blog')"
                   class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
-                  >Work</span
+                  >Freelancing</span
                 >
               </li>
               <li class="py-2">
                 <span
                   @click="triggerMobileNavItem('#portfolio')"
                   class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
-                  >Work</span
+                  >Hobbies</span
                 >
               </li>
             </ul>
@@ -269,9 +276,20 @@
           ></button>
           <button
             type="button"
-            @click="triggerNavItem('#work')"
+            @click="triggerNavItem('#educ')"
             class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
             :class="currentSection === 2
+                ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+                : currentSection === 0
+                  ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                  : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+            aria-label="Go to education"
+          ></button>
+          <button
+            type="button"
+            @click="triggerNavItem('#work')"
+            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+            :class="currentSection === 3
                 ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
                 : currentSection === 0
                   ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
@@ -279,21 +297,21 @@
             aria-label="Go to work"
           ></button>
           <button
-            type="button"
-            @click="triggerNavItem('#blog')"
-            class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-            :class="currentSection === 3
-                ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
-                : currentSection === 0
-                  ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
-                  : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
-            aria-label="Go to blog"
-          ></button>
-          <button
           type="button"
           @click="triggerNavItem('#blog')"
           class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
           :class="currentSection === 4
+              ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
+              : currentSection === 0
+                ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
+                : 'h-3 w-3 border-2 border-primary bg-transparent hover:opacity-80 focus:ring-primary'"
+          aria-label="Go to blog"
+        ></button>
+          <button
+          type="button"
+          @click="triggerNavItem('#portfolio')"
+          class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
+          :class="currentSection === 5
               ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
               : currentSection === 0
                 ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'

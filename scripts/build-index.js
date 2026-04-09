@@ -13,6 +13,7 @@ const files = [
   'shell-top.html',
   'hero.html',
   'about.html',
+  'education.html',
   'work.html',
   'blog.html',
   'portfolio.html',
