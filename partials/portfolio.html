@@ -1,10 +1,10 @@
         <!-- Portfolio Section-->
-        <div id="portfolio" class="snap-section min-h-screen bg-white py-12 md:py-12">
-          <div class = "container">
+        <div id="portfolio" class="snap-section min-h-screen bg-white py-10 md:py-10">
+          <div class="container">
             <h2
               class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
             >
-              Hobbies and Associative Life
+              Associative Life And Hobbies
             </h2>
             <h3
               class="pt-6 text-center font-header text-xl font-medium text-black sm:text-2xl lg:text-3xl"
@@ -12,27 +12,34 @@
               Here is a glimpse of myself outside of work.
             </h3>
           
-            <div class="mx-auto grid w-full grid-cols-1 gap-8 pt-12 sm:w-3/4 md:gap-10 lg:w-full lg:grid-cols-2">
-              <a
-                href="/"
-                class="mx-auto transform transition-all hover:scale-105 md:mx-0"
-              >
-                <img
-                  src="/assets/img/portfolio-apple.jpeg"
-                  class="w-full shadow"
-                  alt="portfolio image"
-                />
-              </a>
-              <a
-                href="/"
-                class="mx-auto transform transition-all hover:scale-105 md:mx-0"
-              >
-                <img
-                  src="/assets/img/portfolio-stripe.jpeg"
-                  class="w-full shadow"
-                  alt="portfolio image"
-                />
-              </a>
+            <div class="mx-auto flex w-full max-w-5xl flex-col gap-8 pt-10">
+              <!-- Row 1: image left, text right -->
+              <div class="grid items-center gap-6 md:min-h-[36vh] md:grid-cols-[200px_minmax(0,1fr)]">
+                <div class="mx-auto w-full max-w-[160px] md:mx-0 md:max-w-[200px]">
+                  <img
+                    src="/assets/img/enactus.png"
+                    class="h-auto w-full object-contain shadow"
+                    alt="Enactus activity"
+                  />
+                </div>
+                <p class="font-body text-base leading-relaxed text-black md:text-lg">
+                  Initiated, alongside 6 executive members and 25 team members, the entity principles aimed at building social, environment-friendly and economic projects.
+                </p>
+              </div>
+
+              <!-- Row 2: text left, image right -->
+              <div class="grid items-center gap-6 md:grid-cols-[200px_minmax(0,1fr)]">
+                <p class="order-2 font-body text-base leading-relaxed text-black md:order-1 md:text-lg">
+                  The oud has been a deep personal passion for years. I enjoy exploring traditional melodies and modern arrangements, and I see music as a space where discipline, emotion, and creativity meet.
+                </p>
+                <div class="order-1 mx-auto w-full max-w-[160px] md:order-2 md:justify-self-end md:max-w-[200px]">
+                  <img
+                    src="/assets/img/oud.png"
+                    class="w-full shadow"
+                    alt="Playing oud"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
