@@ -101,6 +101,9 @@
           currentSection: 0,
           navInAbout: false,
           currentJob: 0,
+          portfolioAnimationPlayed: false,
+          portfolioRow1Visible: false,
+          portfolioRow2Visible: false,
           init() {
             const update = () => {
               const y = window.scrollY;
@@ -110,6 +113,23 @@
             };
             window.addEventListener('scroll', update);
             update();
+
+            const portfolioSection = document.querySelector('#portfolio');
+            if (!portfolioSection) return;
+
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting && !this.portfolioAnimationPlayed) {
+                  this.portfolioAnimationPlayed = true;
+                  this.portfolioRow1Visible = true;
+                  setTimeout(() => {
+                    this.portfolioRow2Visible = true;
+                  }, 350);
+                }
+              });
+            }, { threshold: 0.35 });
+
+            observer.observe(portfolioSection);
           },
           triggerNavItem(id) {
               $scroll(id)
