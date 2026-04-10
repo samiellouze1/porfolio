@@ -1493,10 +1493,6 @@ html {
   height: 12rem;
 }
 
-.h-6 {
-  height: 1.5rem;
-}
-
 .h-72 {
   height: 18rem;
 }
@@ -1596,12 +1592,6 @@ html {
 .shrink-0 {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-}
-
-.grow {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
 }
 
 .border-collapse {
@@ -1746,16 +1736,6 @@ html {
   gap: 2rem;
 }
 
-.gap-x-3 {
-  -webkit-column-gap: 0.75rem;
-     -moz-column-gap: 0.75rem;
-          column-gap: 0.75rem;
-}
-
-.gap-y-2 {
-  row-gap: 0.5rem;
-}
-
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -1854,10 +1834,6 @@ html {
 .border-grey-70 {
   --tw-border-opacity: 1;
   border-color: rgb(216 216 216 / var(--tw-border-opacity, 1));
-}
-
-.border-grey-70\/70 {
-  border-color: rgb(216 216 216 / 0.7);
 }
 
 .border-lila {
@@ -1986,11 +1962,6 @@ html {
 .px-0\.5 {
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-}
-
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
 }
 
 .px-4 {
@@ -2169,10 +2140,6 @@ html {
   line-height: 2.5rem;
 }
 
-.text-\[0\.65rem\] {
-  font-size: 0.65rem;
-}
-
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -2223,10 +2190,6 @@ html {
 
 .leading-tight {
   line-height: 1.25;
-}
-
-.tracking-\[0\.2em\] {
-  letter-spacing: 0.2em;
 }
 
 .tracking-wide {
@@ -2301,10 +2264,6 @@ html {
 
 .opacity-100 {
   opacity: 1;
-}
-
-.opacity-90 {
-  opacity: 0.9;
 }
 
 .opacity-95 {
@@ -2604,10 +2563,6 @@ html {
     height: 16rem;
   }
 
-  .sm\:h-7 {
-    height: 1.75rem;
-  }
-
   .sm\:h-84 {
     height: 21rem;
   }
@@ -2643,21 +2598,6 @@ html {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-  }
-
-  .sm\:gap-x-5 {
-    -webkit-column-gap: 1.25rem;
-       -moz-column-gap: 1.25rem;
-            column-gap: 1.25rem;
-  }
-
-  .sm\:gap-y-3 {
-    row-gap: 0.75rem;
-  }
-
-  .sm\:px-2 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 
   .sm\:py-4 {
@@ -2713,11 +2653,6 @@ html {
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .sm\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
   }
 
   .sm\:leading-9 {
@@ -2951,11 +2886,6 @@ html {
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
   }
 
   .md\:text-xl {

@@ -23,7 +23,7 @@
                 I hold a Bachelor's degree in Computer Science from ENSI Manouba, where I specialized in Capital Markets and Financial Engineering, graduating in 2024. This academic background complements my professional experience and strengthens my understanding of financial systems.
               </hover-text>
               
-              <hover-text >
+              <hover-text x-show="hasLearningSection">
                 Beyond my day-to-day work, I actively keep up with industry trends and continuously expand my skill set. Most recently, I earned the AWS Certified Developer – Associate (DVA-C02), reinforcing my knowledge of cloud-native development.
               </hover-text>
               
@@ -92,7 +92,7 @@
               <service-tile title="Work Experience" href="#fis"></service-tile>
               <service-tile title="My internships" href="#work"></service-tile>
               <service-tile title="Freelancing experiences" href="#blog"></service-tile>
-              <service-tile title="Learning on the side" href="#learning"></service-tile>
+              <service-tile x-show="hasLearningSection" title="Learning on the side" href="#learning"></service-tile>
               <service-tile title="Hobbies and Associative Life" href="#portfolio"></service-tile>
               <service-tile title="Contact me" href="#contactme"></service-tile>
             </div>

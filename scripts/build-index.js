@@ -8,8 +8,9 @@ const path = require('path');
 
 const root = path.join(__dirname, '..');
 const partialsDir = path.join(root, 'partials');
+const withoutAws = process.argv.includes('--withoutaws') || process.env.npm_config_withoutaws === 'true';
 
-const files = [
+const allFiles = [
   'shell-top.html',
   'hero.html',
   'who-am-i.html',
@@ -22,6 +23,9 @@ const files = [
   'contact-me.html',
   'shell-bottom.html',
 ];
+const files = withoutAws
+  ? allFiles.filter((name) => name !== 'learning-on-the-side.html')
+  : allFiles;
 
 const out = files
   .map((name) => {
@@ -34,4 +38,6 @@ const out = files
   .join('\n');
 
 fs.writeFileSync(path.join(root, 'index.html'), out + '\n');
-console.log('Wrote index.html from partials/');
+console.log(
+  `Wrote index.html from partials/ (${withoutAws ? 'without' : 'with'} Learning on the side)`
+);

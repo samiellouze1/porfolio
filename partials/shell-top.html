@@ -101,6 +101,8 @@
           currentSection: 0,
           navInAbout: false,
           currentJob: 0,
+          hasLearningSection: true,
+          sectionIds: [],
           portfolioAnimationPlayed: false,
           portfolioRow1Visible: false,
           portfolioRow2Visible: false,
@@ -112,9 +114,14 @@
             const update = () => {
               const y = window.scrollY;
               const h = window.innerHeight;
-              this.currentSection = y < h * 0.5 ? 0 : y < h * 1.5 ? 1 : y < h * 2.5 ? 2 : y < h * 3.5 ? 3 : y < h * 4.5 ? 4 : y < h * 5.5 ? 5 : y < h * 6.5 ? 6 : y < h * 7.5 ? 7 : 8;
+              const index = Math.round(y / h);
+              this.currentSection = Math.min(index, Math.max(this.sectionIds.length - 1, 0));
               this.navInAbout = this.currentSection >= 1;
             };
+            this.hasLearningSection = Boolean(document.querySelector('#learning'));
+            this.sectionIds = Array.from(document.querySelectorAll('.snap-section'))
+              .map((section) => section.id)
+              .filter(Boolean);
             window.addEventListener('scroll', update);
             update();
 
@@ -272,7 +279,7 @@
                   >Freelancing</span
                 >
               </li>
-              <li class="py-2">
+              <li class="py-2" x-show="hasLearningSection">
                 <span
                   @click="triggerMobileNavItem('#learning')"
                   class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
@@ -368,9 +375,10 @@
         ></button>
           <button
           type="button"
+          x-show="hasLearningSection"
           @click="triggerNavItem('#learning')"
           class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-          :class="currentSection === 6
+          :class="currentSection === sectionIds.indexOf('learning')
               ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
               : currentSection === 0
                 ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
@@ -381,7 +389,7 @@
           type="button"
           @click="triggerNavItem('#portfolio')"
           class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-          :class="currentSection === 7
+          :class="currentSection === sectionIds.indexOf('portfolio')
               ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
               : currentSection === 0
                 ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
@@ -392,7 +400,7 @@
           type="button"
           @click="triggerNavItem('#contactme')"
           class="rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-offset-2"
-          :class="currentSection === 8
+          :class="currentSection === sectionIds.indexOf('contactme')
               ? 'h-3.5 w-3.5 scale-125 border-2 border-primary bg-primary focus:ring-primary'
               : currentSection === 0
                 ? 'h-3 w-3 border-2 border-white bg-transparent hover:opacity-80 focus:ring-white'
