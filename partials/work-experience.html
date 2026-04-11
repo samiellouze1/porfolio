@@ -1,5 +1,5 @@
         <!-- FIS Experience Section -->
-        <div id="fis" class="snap-section min-h-screen bg-grey-50 py-16 md:py-20">
+        <div id="fis" class="snap-section min-h-screen bg-grey-50 py-16 md:py-10">
           <div class="container">
             <h2
               class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
@@ -12,8 +12,8 @@
               Fidelity Information Services (FIS)
             </h3>
 
-            <div class="mx-auto mt-12 grid w-full max-w-5xl items-center gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:gap-10">
-              <div class="mx-auto w-full max-w-[200px] md:max-w-[240px]">
+            <div class="mx-auto mt-2 grid w-full max-w-5xl items-center gap-8 md:grid-cols-[60px_minmax(0,1fr)] md:gap-10">
+              <div class="mx-auto w-full max-w-[50px] md:max-w-[60px]">
                 <img
                   src="/assets/img/FIS.jpg"
                   class="h-auto w-full rounded-md object-contain shadow-[0_12px_28px_rgba(0,0,0,0.24)] ring-1 ring-black/5"
@@ -22,27 +22,42 @@
               </div>
 
               <div class="text-center md:text-left">
-                <hover-text extra-classes="text-base md:text-lg"
+                <hover-text extra-classes="text-base md:text-sm"
                 default-color="#3BA318" hover-color="#307030">
-                  I currently work at Fidelity Information Services (FIS), where I contribute to backend systems in the capital markets domain.
-                </hover-text>
-                <hover-text extra-classes="text-base md:text-lg">
-                  My work focuses on building reliable, maintainable services with strong attention to performance, code quality, and production stability.
-                </hover-text>
-                <hover-text extra-classes="text-base md:text-lg">
-                  This role has strengthened my expertise in enterprise software engineering and deepened my understanding of financial platforms at scale.
+                  I currently work at Fidelity Information Services (FIS), where I contribute to the development and maintenance of backend systems within the capital markets domain. I joined FIS after completing my final academic project, leveraging both my academic foundation in capital markets and my strong proficiency in Java, Spring Boot, and the broader Java ecosystem.                
                 </hover-text>
               </div>
             </div>
 
             <!-- Second row: full-width text -->
-            <div class="mx-auto mt-10 w-full max-w-5xl">
-              <hover-text extra-classes="text-base text-left md:text-lg">
-                At FIS, I collaborate in an enterprise-scale environment where delivery quality, traceability, and operational reliability are essential. Working in this context has strengthened my ability to design solutions that are robust in production, not only correct in development.
+            <div class="mx-auto mt-2 w-full max-w-5xl">
+              <hover-text extra-classes="text-base text-left md:text-sm">
+                I am part of the Margin team, which is responsible for computing Initial Margin Requirements and related financial metrics. These calculations are centralized within a core library and exposed through a backend application called Margin Engine, built using Java and OSGi. This engine serves multiple downstream systems, including back-office platforms like UBIX and risk monitoring tools such as Risk Advisor. The overall stack spans Java, Spring, OSGi, and Angular.              
               </hover-text>
-              <hover-text extra-classes="text-base text-left md:text-lg">
-                Beyond implementation, I have grown in code review practices, team communication, and long-term maintainability thinking, which continuously improves how I approach backend architecture and feature evolution.
+              <hover-text extra-classes="text-base text-left md:text-sm">
+                During my onboarding, I contributed to maintenance and incremental improvements across Margin Engine and its frontend counterpart, Margin Advisor. I was then entrusted with maintaining a critical UBIX module responsible for orchestrating margin calculation requests across multiple markets, including FMX and OCC. This experience required me to quickly adapt to a complex legacy ecosystem involving C, Python, Java, and PL/SQL, significantly strengthening my ability to navigate and modernize heterogeneous systems.
               </hover-text>
+              <hover-text extra-classes="text-base text-left md:text-sm">
+                Since June 2025, I have been actively involved in the redevelopment of Risk Advisor, a risk monitoring platform designed to track margin metrics, financial balances, and generate actionable alerts. I played a key role in designing and implementing the database layer, writing optimized SQL-based CRUD operations aligned with a collaboratively defined domain model.              
+                To support frontend performance and usability, I engineered a robust data access layer enabling advanced querying capabilities, including dynamic filtering, sorting, pagination, and data expansion. In parallel, I developed a reusable integration library to interact with the platform’s REST APIs, facilitating the ingestion of referential data (financial instruments, products, futures, and calls) as well as transactional data such as trades, positions, and balances. I subsequently integrated this library into UBIX, ensuring seamless synchronization between systems.
+                I also led the implementation of financial balances within Risk Advisor, incorporating them into the alerting framework and limit monitoring workflows. This included designing and computing derived indicators, combining margin data and financial balances through custom arithmetic operations to deliver enhanced risk insights.
+              </hover-text>
+              <hover-text extra-classes="text-base text-left md:text-sm">
+                Through this experience, I have developed a strong appreciation for building high-performance, scalable systems in complex financial environments. I have worked across multiple applications of varying maturity, gaining a holistic understanding of enterprise system architecture. I thrive in environments that balance technical rigor with innovation, and I continuously challenge myself to go beyond established patterns—seeking not only to understand how systems work, but how they can be improved.
+              </hover-text>
+            </div>
+
+            <div class="mt-8 border-t border-grey-70/70 pt-6">
+              <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:flex-nowrap">
+                <p class="font-header text-xs font-semibold uppercase text-grey-20 md:text-sm whitespace-nowrap">
+                  Clients that use our products:
+                </p>
+                <img src="/assets/img/jp-morgan.svg"         alt="JP Morgan"      class="h-7 w-auto opacity-90">
+                <img src="/assets/img/bnp-paribas-2.svg"     alt="BNP Paribas"    class="h-7 w-auto opacity-90">
+                <img src="/assets/img/caceis-bank-logo.svg"  alt="Caceis Bank"    class="h-7 w-auto opacity-90">
+                <img src="/assets/img/morgan-stanley-new.svg" alt="Morgan Stanley" class="h-7 w-auto opacity-90">
+                <img src="/assets/img/Deutsche_Bank-Logo.svg" alt="Deutsche Bank"  class="h-7 w-auto opacity-90">
+              </div>
             </div>
           </div>
         </div>
